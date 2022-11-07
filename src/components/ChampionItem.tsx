@@ -1,7 +1,11 @@
 import Link from "next/link";
 import ChampionsStyles from "../styles/Champions.module.css";
 
-const ChampionsItem = ( champion : any ) => {
+interface ChampionItemProps{
+  champion: any;
+}
+
+const ChampionsItem: React.FC<ChampionItemProps> = ( {champion} ) => {
   // console.log(champion);
   return (
     <Link href="/champion/[id]" as={`/champion/${champion.id}`}>

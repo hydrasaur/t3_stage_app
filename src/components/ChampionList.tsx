@@ -1,12 +1,18 @@
 import { useState } from "react";
+import { string } from "zod";
+import ChampionItem from "./ChampionItem";
 
 interface ChampionsListProps {
   champions?: any;
 }
 
 const ChampionsList: React.FC<ChampionsListProps> = ({champions}) => {
-  const [search, setSearch] = useState("");
-  const [select, setSelect] = useState("");
+  console.log(champions);
+  
+  // console.log(champions);
+  
+  const [search, setSearch] = useState<string>("");
+  const [select, setSelect] = useState<string>("");
   
   const tags = ["Marksman", "Support", "Tank", "Fighter", "Assassin", "Mage"];
 
@@ -42,22 +48,20 @@ const ChampionsList: React.FC<ChampionsListProps> = ({champions}) => {
       {Object.entries(champions.data)
         .filter((champion: any) => {
           // full text search filter
-          if (
-            champion[0].toLowerCase().includes(search.toLowerCase()) &&
-            champion[1].tags.includes(select)
+          const champ = champion[1]
+          if ( 
+            champion[0].toLowerCase().includes(search.toLowerCase())
+            // champion[1].tags.includes(select)
           ) {
             return true;
           }
+          
         })
         .map((champion) => {
           // console.log(champion[1].tags);
           const champ = champion[1];
-          // return <ChampionItem champion={champ} />;
-          return (
-            <div>
-              test
-            </div>
-          )
+          return <ChampionItem champion={champ} />;
+          
         })}
     </div>
   </div>
