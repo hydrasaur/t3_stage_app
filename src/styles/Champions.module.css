@@ -1,0 +1,130 @@
+.grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+
+  }
+
+.card {
+    margin: 2rem;
+    padding: 1.5rem;
+    text-align: center;
+    color: inherit;
+    text-decoration: wavy;
+    border: 1px solid #eaeaea;
+    border-radius: 20px;
+    transition: color 1.30s ease, border-color 1.30s ease;
+    max-width: 200px;
+   
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+    color: aqua;
+    border-color: aquamarine;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card,
+  .footer {
+    border-color: rgb(39, 39, 39);
+  }
+  .code {
+    background: rgb(31, 31, 31);
+  }
+  .logo img {
+    filter: invert(1);
+  }
+}
+
+  .para {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 50px
+    
+  }
+
+  .favCard {
+    display: flex;
+    margin: 2rem;
+    padding: 20px;
+    border: 1px solid;
+    border-radius: 20px;
+    border-color:  red;
+    flex-direction: row;
+    transition: color 1s ease, border-color 1s ease;
+    width: 1600px
+    }
+  
+  .favoriteCard {
+    margin: 2rem;
+    padding: 10px;
+    text-align: left;
+    color: inherit;
+    text-decoration: wavy;
+    border: 1px solid;
+    border-radius: 20px;
+    max-width: 500px;
+    transition: color 1s ease, border-color 1s ease;
+    flex-direction: row;
+  }
+
+  .favCard:hover,
+  .favCard:focus,
+  .favCard:active {
+    color: purple;
+    border-color: blueviolet;
+  }
+/*   
+  @media (max-width: 600px) {
+    .favoriteCard {
+      width: 100%;
+      flex-direction: column;
+    }
+  } */
+  
+  @media (prefers-color-scheme: dark) {
+    .favoriteCard,
+    .footer {
+      border-color: rgb(39, 39, 39);
+    }
+    .code {
+      background: rgb(31, 31, 31);
+    }
+    .logo img {
+      filter: invert(1);
+    }
+  }
+  
+    .favoriteCard {
+      white-space: nowrap; 
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 100px
+      
+    }
+
+    .favoriteCard {
+      display: flex;
+      align-items: left;
+      justify-content: left;
+      flex-wrap: wrap;
+      max-width: 800px;
+      height: 200px;
+  
+    }
+    
+    .p {
+      text-align: center;
+      padding: 100px;
+      
+    }
+    
+    .h4 {
+      text-align: right;
+      
+    }
