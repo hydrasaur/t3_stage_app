@@ -1,4 +1,4 @@
-/* .title a, 
+.title a, 
 .title span{
     color: #0070f3;
     text-decoration: none;
@@ -25,16 +25,4 @@
     margin: 4rem 0;
     line-height: 1.5;
     font-size: 1.5rem;
-  } */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  h1 {
-    @apply text-2xl;
   }
-  h2 {
-    @apply text-xl 
-  }
-}

@@ -13,7 +13,7 @@
     text-align: center;
     color: inherit;
     text-decoration: wavy;
-    border: 1px solid #eaeaea;
+    border: 1px solid #ffffff;
     border-radius: 20px;
     transition: color 1.30s ease, border-color 1.30s ease;
     max-width: 200px;
@@ -33,7 +33,7 @@
     border-color: rgb(39, 39, 39);
   }
   .code {
-    background: rgb(31, 31, 31);
+    background: rgb(0, 0, 0);
   }
   .logo img {
     filter: invert(1);

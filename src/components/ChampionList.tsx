@@ -18,8 +18,8 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ champions }) => {
 
    return (
       <div>
-         <div className="flex">
-            <div className="flex flex-col w-80 pr-8">
+         <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2  justify-center mx-auto">
+            <div className="flex flex-col ">
                <label>Enter champ here:</label>
                <input
                   type="text"
@@ -28,7 +28,7 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ champions }) => {
                   onChange={(e) => setSearch(e.target.value)}
                />
             </div>
-            <div className="flex flex-col w-80 pr-8">
+            <div className="flex flex-col w-80">
                select box
                <select
                   id="tags"
@@ -44,7 +44,7 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ champions }) => {
                </select>
             </div>
          </div>
-         <div className="">
+         <div className="grid mx-4  gap-4 sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-3 content-center justify-center">
             {Object.entries(champions.data)
                .filter((champion: any) => {
                   // full text search filter

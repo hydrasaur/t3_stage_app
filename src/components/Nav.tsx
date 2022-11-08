@@ -3,30 +3,32 @@ import navStyles from "../styles/Nav.module.css";
 
 const Nav = () => {
   return (
-    <nav className={navStyles.nav}>
-      <ul>
-        <li>
-          <Link href="/" style={{ color: "white" }}>
-            home
-          </Link>
-        </li>
-        <li>
-          <Link href="/something">Something</Link>
-        </li>
-        <li>
-          <Link href="https://github.com/hydrasaur/CrashcourseNextJs">
-            Source
-          </Link>
-        </li>
-        <li>
-          <Link href="/champions">league</Link>
-        </li>
-        <li>
-          <Link href="https://loldle.net/">test your nolig</Link>
-        </li>
+    <nav className="h-12 p-3 bg-black flex items-center justify-start">
+      <ul className="flex justify-center items-center list-none">
+      <NavLink href="/" title="Home" />
+       <NavLink href="/something" title="Something" />
+        <NavLink href="https://github.com/hydrasaur/CrashcourseNextJs" title="Source"/>
+        <NavLink href="/champions" title="League"/>
+        <NavLink href="https://loldle.net/" title="Test your nolig"/>
+        <NavLink href="/logboek" title="Logboek"/>
       </ul>
     </nav>
   );
 };
 
 export default Nav;
+
+interface NavigatieLinkProps{
+  href: string
+  title: string
+}
+
+export const NavLink: React.FC<NavigatieLinkProps> = ({href, title}) => {
+  return (
+    <li className="my-1 mx-4">
+      <Link href={href} style={{ color: "red" }}>
+        {title}
+      </Link>
+  </li>
+  )
+}

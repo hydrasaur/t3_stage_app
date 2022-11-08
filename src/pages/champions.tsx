@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import ChampionsList from "../components/ChampionList";
+import FavoriteList from "../components/FavoriteList";
 
 interface ChampionsProps {
   champions: any
@@ -14,6 +15,7 @@ export const Champions: React.FC<ChampionsProps> = ({champions}) => {
         description="this is a list of the playable champions in LoL"
       />
       <ChampionsList champions={champions}/>
+      {/* <FavoriteList champions={champions}/> */}
     </div>
   );
 };

@@ -9,10 +9,10 @@ const ChampionsItem: React.FC<ChampionItemProps> = ( {champion} ) => {
   // console.log(champion);
   return (
     <Link href="/champion/[id]" as={`/champion/${champion.id}`}>
-      <div className={ChampionsStyles.card}>
+      <div className="p-6 text-center caret-inherit decoration-wavy border-2 border-solid border-red-500 rounded-3xl  hover:border-cyan-500">
         <h3>{champion.name}</h3>
         <p>{champion.title}</p>
-        <p className={ChampionsStyles.para}>{champion.blurb}</p>
+        <p className="whitespace-nowrap overflow-hidden text-ellipsis h-12">{champion.blurb}</p>
       </div>
     </Link>
   );
