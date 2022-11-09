@@ -65,4 +65,8 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-
+model LogPost {
+  id      String @id @default(cuid())
+  date    String
+  details String
+}

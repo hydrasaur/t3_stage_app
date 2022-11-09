@@ -26,7 +26,7 @@ interface NavigatieLinkProps{
 export const NavLink: React.FC<NavigatieLinkProps> = ({href, title}) => {
   return (
     <li className="my-1 mx-4">
-      <Link href={href} style={{ color: "red" }}>
+      <Link href={href} style={{ color: "grey" }}>
         {title}
       </Link>
   </li>
