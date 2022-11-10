@@ -1,16 +1,27 @@
+import { log } from "console";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { NextPage } from "next/types";
 import React from "react";
+import { string } from "zod";
 import { NavLink } from "../components/Nav";
 import { trpc } from "../utils/trpc";
 
 
 const Logboek: NextPage = () => {
   
-const today = new Date()
+  const today = new Date()
+  
+  const {data, isLoading, refetch} = trpc.log.getAll.useQuery();
 
-const {data, isLoading} = trpc.log.getAll.useQuery();
+  const mutation = trpc.log.delete.useMutation()
+  
+const handleDelete = (id: string) => {
+    mutation.mutate({
+  id: id
+})
+refetch()
+}
 
 if (isLoading) {
   return (
@@ -30,7 +41,7 @@ if (isLoading) {
       </Link>
 
       {data?.map((log)=> {
-        return <LogCard date={log.date} dayInfo={log.info} />
+        return <LogCard id={log.id} handleDelete={handleDelete} date={log.date} dayInfo={log.info} />
       })}
       {/* <LogCard date={today.toLocaleDateString().padStart(10, '0')} day="woensdag" dayInfo="lorem ipsum" /> */}
 
@@ -41,23 +52,33 @@ if (isLoading) {
 export default Logboek;
 
 interface LogCardProps {
+  id: string;
+  handleDelete: (id :string) => void;
   date: string;
   dayInfo: string;
 }
 
-const LogCard: React.FC<LogCardProps> = ({ date, dayInfo }) => {
+const LogCard: React.FC<LogCardProps> = ({ id,  handleDelete, date, dayInfo }) => {
+
+
+
+
+
+
+
   return (
     <div className="my-4 max-w-4xl rounded-lg bg-white px-10 py-6 shadow-md">
       <div className="flex items-center justify-between">
         <span className="font-light text-gray-600">{date}</span>
         <a className="rounded bg-gray-600 px-2 py-1 font-bold text-gray-100 ">
-          <button onClick={}>delete</button>
+          <button onClick={()=> handleDelete(id)}>delete</button>
         </a>
       </div>
       <div className="mt-2">
         <p className="mt-2 text-gray-600">{dayInfo}</p>
       </div>
     </div>
+
   );
 };
 

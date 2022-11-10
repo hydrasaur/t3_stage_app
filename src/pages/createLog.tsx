@@ -1,12 +1,16 @@
-import { loggerLink } from "@trpc/client"
-import Link from "next/link"
+import React, { useState } from 'react'
+import NextLink from "next/link"
+import { any } from "zod";
 import { trpc } from "../utils/trpc"
 
 const CreateLogPage = () => {
     // const mutation = trpc.log.
+    const [success, setSuccess] = useState(false)
+
+
     const mutation = trpc.log.create.useMutation();
 
-    const handleCreateLog = (e: React.SyntheticEvent) => {
+    const handleCreateLog = async (e: React.SyntheticEvent) => {
         console.log("function triggerd");
 
         e.preventDefault();
@@ -20,22 +24,32 @@ const CreateLogPage = () => {
 
         console.log(date, info);
 
-        const res = mutation.mutate({
+        //  check if values are null or empty
+        if (info === '' || date === '') {
+            console.log("date or info is empty");
+            return
+        }
+
+
+        const res = await mutation.mutateAsync({
             date: date,
             info: info,
         })
 
-        console.log(res);
+        console.log("result", res);
+
+        if (res.id) {
+            console.log("create succes");
+            setSuccess(true)
+        }
     }
+
 
 
     return (
         <div>
-            <Link href="/logboek">
-                <button className="border-red-600 bg-red-600  border-2 border-solid rounded p-1 m-2">cancel</button>
-            </Link>
             <div className=" items-center justify-center p-12">
-                <div className="mx-auto w-full max-w-[550px]">
+                <div className="mx-auto w-full min-w-[250px] max-w-[550px]">
                     <div className="-mx-3 flex flex-wrap">
                         <div className="w-full px-3 ">
                             <div className="border border-zinc-600 p-3 rounded-lg">
@@ -49,16 +63,29 @@ const CreateLogPage = () => {
                                             name="date"
                                             id="date"
                                             className="w-full rounded-md border border-[#5e5e5e]"
+                                            required
                                         />
                                     </div>
-                                    <textarea className="w-full  border border-neutral-500" rows={5} name="info"></textarea>
-                                    <input className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" type="submit" value="Create" />
+                                    <textarea className="w-full  border border-neutral-500" rows={5} name="info" required></textarea>
+                                    {success
+                                        ? <div>
+                                            <NextLink href="/logboek" className="border border-zinc-600 py-1 px-6 my-2 ">Go Back</NextLink>
+                                            <p className="text-emerald-700">Succesfully created!</p>
+                                        </div>
+                                        : <div className='flex justify-between'>
+                                            <input className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" type="submit" value="Create" />
+                                            <NextLink href="/logboek">
+                                                <button className="hover:shadow-form rounded-md border-red-600 bg-red-600  border-2 border-solid   py-3 px-8 ">cancel</button>
+                                            </NextLink>
+                                        </div>
+                                    }
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     )
 }
