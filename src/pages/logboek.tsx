@@ -3,11 +3,24 @@ import Link from "next/link";
 import { NextPage } from "next/types";
 import React from "react";
 import { NavLink } from "../components/Nav";
+import { trpc } from "../utils/trpc";
 
 
 const Logboek: NextPage = () => {
   
 const today = new Date()
+
+const {data, isLoading} = trpc.log.getAll.useQuery();
+
+if (isLoading) {
+  return (
+    <div>
+      <h1>Loading....</h1>
+    </div>
+  )
+}
+
+
   return (
     <div>
       <Link href="/createLog" >
@@ -15,7 +28,11 @@ const today = new Date()
           create new
         </button>
       </Link>
-      <LogCard date={today.toLocaleDateString().padStart(10, '0')} day="woensdag" dayInfo="lorem ipsum" />
+
+      {data?.map((log)=> {
+        return <LogCard date={log.date} dayInfo={log.info} />
+      })}
+      {/* <LogCard date={today.toLocaleDateString().padStart(10, '0')} day="woensdag" dayInfo="lorem ipsum" /> */}
 
     </div>
   );
@@ -25,17 +42,16 @@ export default Logboek;
 
 interface LogCardProps {
   date: string;
-  day: string;
   dayInfo: string;
 }
 
-const LogCard: React.FC<LogCardProps> = ({ date, day, dayInfo }) => {
+const LogCard: React.FC<LogCardProps> = ({ date, dayInfo }) => {
   return (
     <div className="my-4 max-w-4xl rounded-lg bg-white px-10 py-6 shadow-md">
       <div className="flex items-center justify-between">
         <span className="font-light text-gray-600">{date}</span>
         <a className="rounded bg-gray-600 px-2 py-1 font-bold text-gray-100 ">
-          {day}
+          <button onClick={}>delete</button>
         </a>
       </div>
       <div className="mt-2">
@@ -44,6 +60,7 @@ const LogCard: React.FC<LogCardProps> = ({ date, day, dayInfo }) => {
     </div>
   );
 };
+
 
 // function dateFormatter(date: Date) {
 //   const yyyy = date.getFullYear();
