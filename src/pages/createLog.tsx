@@ -1,21 +1,31 @@
 import { loggerLink } from "@trpc/client"
 import Link from "next/link"
+import { trpc } from "../utils/trpc"
 
 const CreateLogPage = () => {
-
+    // const mutation = trpc.log.
+    const mutation = trpc.log.create.useMutation();
 
     const handleCreateLog = (e: React.SyntheticEvent) => {
         console.log("function triggerd");
-        
+
         e.preventDefault();
+
         const target = e.target as typeof e.target & {
-          date: { value: string };
-          dayInfo: { value: string };
+            date: { value: string };
+            info: { value: string };
         };
         const date = target.date.value; // typechecks!
-        const info = target.dayInfo.value; // typechecks!
+        const info = target.info.value; // typechecks!
 
         console.log(date, info);
+
+        const res = mutation.mutate({
+            date: date,
+            info: info,
+        })
+
+        console.log(res);
     }
 
 
@@ -41,8 +51,8 @@ const CreateLogPage = () => {
                                             className="w-full rounded-md border border-[#5e5e5e]"
                                         />
                                     </div>
-                                    <textarea className="w-full  border border-neutral-500" rows={5} name="dayInfo"></textarea>
-                                    <input className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" type="submit" value="Create"/>
+                                    <textarea className="w-full  border border-neutral-500" rows={5} name="info"></textarea>
+                                    <input className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" type="submit" value="Create" />
                                 </form>
                             </div>
                         </div>
