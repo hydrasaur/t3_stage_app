@@ -44,8 +44,6 @@ const CreateLogPage = () => {
         }
     }
 
-
-
     return (
         <div>
             <div className=" items-center justify-center p-12">
