@@ -1,83 +1,13 @@
 import React, { Fragment, useState } from 'react'
 import NextLink from "next/link"
-import { any } from "zod";
 import { trpc } from "../utils/trpc"
-import { Dialog, Transition } from '@headlessui/react';
 
-const PopOverButton = () => {
-    let [isOpen, setIsOpen] = useState(true)
-  
-    function closeModal() {
-      setIsOpen(false)
-    }
-  
-    function openModal() {
-      setIsOpen(true)
-    }
-  
-    return (
-      <>
-        <div className="flex justify-between">
-          <button type="button" onClick={openModal} className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
-            create new
-          </button>
-        </div>
-  
-        <Transition appear show={isOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-10" onClose={closeModal}>
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <div className="fixed inset-0 bg-black bg-opacity-25" />
-            </Transition.Child>
-  
-            <div className="fixed inset-0 overflow-y-auto">
-              <div className="flex min-h-full items-center justify-center p-4 text-center">
-                <Transition.Child
-                  as={Fragment}
-                  enter="ease-out duration-300"
-                  enterFrom="opacity-0 scale-95"
-                  enterTo="opacity-100 scale-100"
-                  leave="ease-in duration-200"
-                  leaveFrom="opacity-100 scale-100"
-                  leaveTo="opacity-0 scale-95"
-                >
-                  <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                    <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
-                      log created successfully
-                    </Dialog.Title>
-                    <div className="mt-2">
-                      <p className="text-sm text-gray-500">
-                        your new log has been created
-                      </p>
-                    </div>
-  
-                    <div className="mt-4">
-                      <button
-                        type="button"
-                        className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                        onClick={closeModal}
-                      >
-                        thank you!
-                      </button>
-                    </div>
-                  </Dialog.Panel>
-                </Transition.Child>
-              </div>
-            </div>
-          </Dialog>
-        </Transition>
-      </>
-    )
-  }
+import DialogButton from "../components/common/DialogButton"
+
+
+
 const CreateLogPage = () => {
-    
+
     // const mutation = trpc.log.
 
     const [success, setSuccess] = useState(false)
@@ -142,11 +72,11 @@ const CreateLogPage = () => {
                                     {success
                                         ? <div>
                                             <NextLink href="/logboek" className="border border-zinc-600 py-1 px-6 my-2 ">Go Back</NextLink>
-                                            <p className="text-emerald-700">Succesfully created!</p>
+                                            <p className="text-emerald-700"></p>
+                                            {/* <DialogButton title='Log create succesfully' description='Your log has been created' buttonTitle='Thank you!' dialogButtonText='"create'/> */}
                                         </div>
                                         : <div className='flex justify-between'>
-                                            {/* <input className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" type="submit" value="Create" /> */}
-                                            <PopOverButton />
+                                            <input className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" type="submit" value="Create" />
                                             <NextLink href="/logboek">
                                                 <button className="hover:shadow-form rounded-md border-red-600 bg-red-600  border-2 border-solid   py-3 px-8 ">cancel</button>
                                             </NextLink>
@@ -161,4 +91,5 @@ const CreateLogPage = () => {
         </div>
     )
 }
+
 export default CreateLogPage
