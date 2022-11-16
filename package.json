@@ -24,6 +24,7 @@
     "react-dom": "18.2.0",
     "superjson": "1.9.1",
     "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.6.8",
     "zod": "^3.18.0"
   },
   "devDependencies": {

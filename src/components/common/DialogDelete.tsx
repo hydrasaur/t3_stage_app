@@ -3,14 +3,18 @@ import { Fragment, useState } from "react"
 
 type DialogDeleteProps = {
     title: string
-    description: string
-    buttonTitle: string
-    buttonTitle2: string
-    onClick?: () => void
+    description: string;
+    dialogButtonText: string;
+    buttonTitle: string;
+    onClick?: () => void;
+    onDelete?: () => void;
 }
 
-const DialogDelete: React.FC<DialogDeleteProps> = ({ title, description, buttonTitle, buttonTitle2, onClick }) => {
-    let [isOpen, setIsOpen] = useState(true)
+
+
+
+const DialogDelete: React.FC<DialogDeleteProps> = ({ title, description, dialogButtonText, buttonTitle, onClick, onDelete }) => {
+    let [isOpen, setIsOpen] = useState(false)
 
     function closeModal() {
         setIsOpen(false)
@@ -22,6 +26,16 @@ const DialogDelete: React.FC<DialogDeleteProps> = ({ title, description, buttonT
 
     return (
         <>
+            <div className="flex items-center justify-center">
+                <button
+                    type="button"
+                    onClick={openModal}
+                    className="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                >
+                    {dialogButtonText}
+                </button>
+            </div>
+            
             <Transition appear show={isOpen} as={Fragment}>
                 <Dialog as="div" className="relative z-10" onClose={closeModal}>
                     <Transition.Child
@@ -60,11 +74,13 @@ const DialogDelete: React.FC<DialogDeleteProps> = ({ title, description, buttonT
                                     <div className="mt-4">
                                         <button
                                             type="button"
-                                            className="inline-flex justify-between rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                            onClick={closeModal}
+                                            className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                                            onClick={() => {
+                                                {onDelete && onDelete()}
+                                                closeModal()
+                                            }}
                                         >
                                             {buttonTitle}
-                                            {buttonTitle2}
                                         </button>
                                     </div>
                                 </Dialog.Panel>
@@ -76,3 +92,5 @@ const DialogDelete: React.FC<DialogDeleteProps> = ({ title, description, buttonT
         </>
     )
 }
+
+export default DialogDelete

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { NextPage } from "next/types";
 import React, { useState } from "react";
 import { text } from "stream/consumers";
-import swal from "sweetalert";
 import { string } from "zod";
 import DialogButton from "../components/common/DialogButton";
 import { NavLink } from "../components/Nav";
