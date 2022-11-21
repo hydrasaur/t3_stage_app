@@ -19,9 +19,9 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ champions }) => {
    return (
       <div>
          <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2  justify-center mx-auto">
-            <div className="flex flex-col ">
-               <label>Enter champ here:</label>
-               <input
+            <div className="flex flex-col">
+               <label>Champ name:</label>
+               <input className="border-black border-solid border m-2"
                   type="text"
                   placeholder="which champ?"
                   value={search}
@@ -29,8 +29,8 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ champions }) => {
                />
             </div>
             <div className="flex flex-col w-80">
-               select box
-               <select
+               Roles
+               <select className="border border-solid border-black m-2"
                   id="tags"
                   value={select}
                   onChange={(e) => setSelect(e.target.value)}

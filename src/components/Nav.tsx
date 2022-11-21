@@ -11,6 +11,7 @@ const Nav = () => {
         <NavLink href="/champions" title="League" />
         <NavLink href="https://loldle.net/" title="Test your nolig" />
         <NavLink href="/logboek" title="Logboek" />
+        <NavLink href="/poster" title="Poster" />
       </ul>
     </nav>
   );
