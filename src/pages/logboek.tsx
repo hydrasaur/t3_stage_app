@@ -17,14 +17,13 @@ const Logboek: NextPage = () => {
 
   const mutation = trpc.log.delete.useMutation()
 
-  const handleDelete = async  (id: string)  => {
+  const handleDelete = async (id: string) => {
     await mutation.mutateAsync({
       id: id
     }).then((_) => {
       refetch()
     })
   }
-
   if (isLoading) {
     return (
       <div>
