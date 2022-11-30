@@ -13,12 +13,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <>
       <Meta />
       <Nav />
-      <div className="px-2">
         <main className="">
           {/* <Header /> */}
           {children}
         </main>
-      </div>
     </>
   );
 };
