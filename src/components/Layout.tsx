@@ -14,7 +14,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Meta />
       <Nav />
         <main className="">
-          {/* <Header /> */}
           {children}
         </main>
     </>

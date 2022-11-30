@@ -31,9 +31,9 @@ const Poster = () => {
       <OrganoGram />
       <ProcessTabel />
       <UseCaseDiagram />
-      <UitgewerktProcess />
+      <UitgewerktProcess  />
       <Rules />
-      <Opinion />
+      <Opinion/>
     </PosterLayout>
   )
 }
@@ -67,7 +67,7 @@ const BizworxCard = () => {
 }
 const Transport = () => {
   return (
-    <div className="object-fill  md:flex rounded-xl p-8 md:p-0  m-2 justify-between">
+    <div className="object-fill flex rounded-xl p-8 md:p-0  m-2 justify-between ">
       <Image className="bg-alizarin m-2 js-show-on-scroll"
         src={transport}
         alt={'picture for transport'}
@@ -214,14 +214,40 @@ const Opinion = () => {
         src={opinion}
         alt={'picture for workplace'}
       />
-      <div className='bg-pumpkin font-bold p-2 m-2 h-24'>
-        Mening :
-        <br /> Persoonlijk vind ik het een leuke en gezelige plek maar ook heel leerzaam ik heb al best
-        <br /> wel veel dingen geleerd die ik echt niet een paar weken of maanden geleden zou kunnen doen
+      <div className='bg-pumpkin font-bold p-2 m-2'>
+        <h4 className='text-3xl'>Mening</h4>
+        <p className='text-xl'>Persoonlijk vind ik het een leuke en gezelige plek.
+          Tot nu toe is het heel leerzaam.
+          Ik heb al best wel veel dingen geleerd die ik echt niet een paar weken of maanden geleden niet zou kunnen doen.
+        </p>
       </div>
     </div>
   )
 }
+
+// interface PosterCradsProps {
+//  src: string;
+//  title: string;
+//  text: string;
+// bgColor: string;
+// }
+
+// const PosterCards: React.FC<PosterCradsProps> = ({src, title, text}) => {
+//   return (
+//     <div className='flex'>
+//       <Image className="bg-pumpkin p-2 mx-auto md:h-auto w-96 md:flex"
+//         src={src}
+//         alt={'picture for workplace'}
+//       />
+//       <div className='bg-pumpkin font-bold p-2 m-2'>
+//         <h4 className='text-3xl'>{title}</h4>
+//         <p>
+//           {text}
+//         </p>
+//       </div>
+//     </div>
+//   )
+// }
 interface PosterLayoutProps {
   children: React.ReactNode
 }
@@ -229,8 +255,10 @@ interface PosterLayoutProps {
 const PosterLayout: React.FC<PosterLayoutProps> = ({ children }) => {
 
   return (
-    <div className='flex flex-col bg-gradient-to-r from-magenta to-darkpink'>
-      {children}
+    <div className='flex flex-col bg-gradient-to-r from-magenta to-darkpink justify-center items-center'>
+      <div className='max-w-screen-lg space-y-96'>
+        {children}
+      </div>
     </div>
   )
 }
