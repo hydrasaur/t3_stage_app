@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { Component, useEffect, useState } from 'react'
 import Image, { StaticImageData } from 'next/image'
 import image from "public/assets/bizworx.png"
 import transport from "public/assets/transport.png"
@@ -11,19 +11,29 @@ import uitgewerktProcess from "/public/assets/UitgewerktProcess.png"
 import opinion from "public/assets/opinion.png"
 import rules from "public/assets/rules.png"
 import Lunch from "public/assets/lunch.png"
-import { useScroll } from "framer-motion"
-
-// const { scrollY } = useScroll()
-
-// useEffect(() => {
-//   return scrollY.onChange((latest) => {
-//     console.log("Page scroll: ", latest)
-//   })
-// }, [])
+import { AnimatePresence, motion, useScroll } from "framer-motion"
+import stylesheet from "../styles/Test.module.css"
+import { url } from 'inspector'
+import { variants } from '../components/AnimatedLayout'
 
 const Poster = () => {
+  const { scrollY } = useScroll()
+  const { scrollYProgress } = useScroll()
+  const [scrollPercentage, setScrollPercentage] = useState<number>(0)
+
+  useEffect(() => {
+    scrollY.onChange((latest) => {
+      console.log("Page scroll: ", latest)
+    })
+    scrollYProgress.onChange((latest) => {
+      console.log(latest);
+      setScrollPercentage(latest)
+    })
+  }, [])
+
   return (
     <PosterLayout>
+      <ProgressBar progressPercentage={scrollPercentage} />
       <PosterCardsTitle src={image} title={"Bizworx creative it solutions"} text={"Bizworx Solution Provider was founded around April 2004, and we have been working in different areas of expertise, mainly as a service provider in the airfreight logistics branch at Schiphol. Being a service provider for logistics companies brings challenges and we love them. Adres : Opaallaan 1180, 2132 LN Hoofddorp nummer : +31 (0) 20 8800 180"} />
       <PosterCards src={transport} title={"bereikbaarheid :"} text={"Ik fiets elke dag. Het is best wel te doen paar plekken waar je moet stoppen maar niks te erg. Met de bus moet je nog een stuk lopen en als je de auto gebruikt ben je zoizo het snelst."} bgColor={'bg-gray-600'} />
       <PosterCardTwoImages src={workPlace} secondSrc={workPlaceTwo} title={"Werkplek omgeving :"} text={"Ik vind dat de sfeer helemaal geweldig hier iedereen kan met elkaar lachen en je kan ook zelfstandig voor jezelf gaan werken en maar tegelijkertijd nogsteeds voor hulp vragen als je echt vast zit."} bgcolor={'bg-red-600'} />
@@ -37,6 +47,21 @@ const Poster = () => {
     </PosterLayout>
   )
 }
+type ProgressBarProps = {
+  progressPercentage: number
+}
+
+const ProgressBar: React.FC<ProgressBarProps> = ({ progressPercentage }) => {
+  return (
+    <div className='h-2 w-full bg-gray-300 rounded overflow-hidden fixed top-12 right-0 left-0 z-10'>
+      <div
+        style={{ width: `${progressPercentage * 100}%` }}
+        className={`h-full  bg-gradient-to-r from-magenta to-darkpink`}
+      ></div>
+    </div>
+  );
+};
+
 
 interface PosterCardImageProps {
   src: StaticImageData;
@@ -45,7 +70,7 @@ interface PosterCardImageProps {
 
 const PosterCardImage: React.FC<PosterCardImageProps> = ({ src, bgcolor }) => {
   return (
-    <div className={`${bgcolor} bg-opacity-25 flex`}>
+    <div className={`${bgcolor} bg-opacity-25 flex scale-150`}>
       <Image className={`p-2 mx-auto md:h-auto w-96 md:flex`}
         src={src}
         alt="CardImage"
@@ -61,9 +86,9 @@ interface PosterCardsProps {
   bgColor: string
 }
 
-const PosterCards: React.FC<PosterCardsProps> = ({ src, title, text, bgColor}) => {
+const PosterCards: React.FC<PosterCardsProps> = ({ src, title, text, bgColor }) => {
   return (
-  <div className={`${bgColor} bg-opacity-25 flex`}>
+    <div className={`${bgColor} bg-opacity-25 flex`}>
       <Image className={`p-2 mx-auto md:h-auto w-96 md:flex`}
         src={src}
         alt="CardImage"
@@ -87,7 +112,7 @@ interface PosterCardsTitleProps {
 const PosterCardsTitle: React.FC<PosterCardsTitleProps> = ({ src, title, text }) => {
   return (
     <div className='flex'>
-      <Image className={`p-2 mx-auto md:h-auto w-96 md:flex`}
+      <Image className={`p-2 mx-auto md:h-auto w-96 `}
         src={src}
         alt="CardImage"
       />
@@ -140,8 +165,8 @@ interface PosterCardsTwoImagesProps {
 
 const PosterCardTwoImages: React.FC<PosterCardsTwoImagesProps> = ({ src, secondSrc, title, text, bgcolor }) => {
   return (
-    <div className={`${bgcolor} bg-opacity-25 flex`}>
-      <Image className={`p-2 mx-auto md:h-auto w-96 md:flex`}
+    <div className={`${bgcolor} p-2 bg-opacity-25 align-top`}>
+      <Image className={`p-2 mx-auto md:h-auto w-96 md:flex scale-110`}
         src={src}
         alt="CardImage"
       />
@@ -152,11 +177,11 @@ const PosterCardTwoImages: React.FC<PosterCardsTwoImagesProps> = ({ src, secondS
         </p>
       </div>
       <div>
-        <Image className={`p-2 mx-auto md:h-auto w-96 md:flex`}
-          src={secondSrc}
-          alt="CardImage"
-        />
       </div>
+      <Image className={`p-2 mx-auto md:h-auto w-96 md:flex scale-110`}
+        src={secondSrc}
+        alt="CardImage"
+      />
     </div>
   )
 }
@@ -169,10 +194,16 @@ interface PosterLayoutProps {
 const PosterLayout: React.FC<PosterLayoutProps> = ({ children }) => {
 
   return (
+
     <div className='flex flex-col bg-gradient-to-r from-magenta to-darkpink justify-center items-center'>
-      <div className='max-w-screen-lg space-y-96'>
+      <motion.div
+        initial="hidden"
+        animate="enter"
+        exit="exit"
+        variants={variants}
+        transition={{ type: 'linear' }} className='max-w-screen-lg space-y-96'>
         {children}
-      </div>
+      </motion.div>
     </div>
   )
 }

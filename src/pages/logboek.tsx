@@ -5,6 +5,7 @@ import { NextPage } from "next/types";
 import React, { useState } from "react";
 import { text } from "stream/consumers";
 import { string } from "zod";
+import AnimatedLayout from "../components/AnimatedLayout";
 import DialogButton from "../components/common/DialogButton";
 import { NavLink } from "../components/Nav";
 import { trpc } from "../utils/trpc";
@@ -33,19 +34,17 @@ const Logboek: NextPage = () => {
   }
 
   return (
-    <div>
+    <AnimatedLayout>
       <Link href="/createLog" >
         <button className="rounded bg-emerald-100 hover:divide-emerald-500" >
-          create new
+          Create New
         </button>
       </Link>
 
       {data?.map((log) => {
         return <LogCard id={log.id} handleDelete={handleDelete} date={log.date} dayInfo={log.info} />
       })}
-      {/* <LogCard date={today.toLocaleDateString().padStart(10, '0')} day="woensdag" dayInfo="lorem ipsum" /> */}
-
-    </div>
+    </AnimatedLayout>
   );
 };
 

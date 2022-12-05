@@ -7,6 +7,8 @@ import { trpc } from "../utils/trpc";
 import "../styles/globals.css";
 import Layout from "../components/Layout";
 
+import { AnimatePresence } from 'framer-motion'
+
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
@@ -14,9 +16,15 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <SessionProvider session={session}>
       <Layout>
-      <Component {...pageProps} />
-    </Layout> 
-    </SessionProvider>
+        <AnimatePresence
+          mode="wait"
+          initial={false}
+          onExitComplete={() => window.scrollTo(0, 0)}
+        >
+          <Component {...pageProps} />
+        </AnimatePresence>
+      </Layout>
+    </SessionProvider >
   );
 };
 

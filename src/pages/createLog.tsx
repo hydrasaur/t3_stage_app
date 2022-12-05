@@ -4,6 +4,7 @@ import { trpc } from "../utils/trpc"
 import DialogButton from "../components/common/DialogButton"
 import { type } from 'os'
 import Swal from 'sweetalert2'
+import AnimatedLayout from '../components/AnimatedLayout'
 
 Swal.fire({
     position: 'top-end',
@@ -53,18 +54,18 @@ const CreateLogPage = () => {
         if (res.id) {
             console.log("create succes");
             setSuccess(true)
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Log created succesfully!',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            }
-         
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Log created succesfully!',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+
     }
     return (
-        <div>
+        <AnimatedLayout>
             <div className=" items-center justify-center p-12">
                 <div className="mx-auto w-full min-w-[250px] max-w-[550px]">
                     <div className="-mx-3 flex flex-wrap">
@@ -92,7 +93,7 @@ const CreateLogPage = () => {
                                         </div>
                                         : <div className='flex justify-between'>
                                             <input className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" type="submit" value="Create" />
-                                           
+
                                             <NextLink href="/logboek">
                                                 <button className="hover:shadow-form rounded-md border-red-600 bg-red-600  border-2 border-solid   py-3 px-8 ">cancel</button>
                                             </NextLink>
@@ -104,7 +105,7 @@ const CreateLogPage = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </AnimatedLayout >
     )
 }
 
