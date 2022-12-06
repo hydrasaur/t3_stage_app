@@ -10,3 +10,12 @@
     transform-origin: 8%;
   }
   
+
+  .box {
+    background-color: black;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  

@@ -13,10 +13,12 @@ import rules from "public/assets/rules.png"
 import Lunch from "public/assets/lunch.png"
 import { AnimatePresence, motion, useScroll } from "framer-motion"
 import stylesheet from "../styles/Test.module.css"
-import { url } from 'inspector'
+import { animate } from "popmotion"
 import { variants } from '../components/AnimatedLayout'
 
 const Poster = () => {
+  const squareRef = React.useRef()
+  const inititalPositionRef = React.useRef()
   const { scrollY } = useScroll()
   const { scrollYProgress } = useScroll()
   const [scrollPercentage, setScrollPercentage] = useState<number>(0)
@@ -112,7 +114,7 @@ interface PosterCardsTitleProps {
 const PosterCardsTitle: React.FC<PosterCardsTitleProps> = ({ src, title, text }) => {
   return (
     <div className='flex'>
-      <Image className={`p-2 mx-auto md:h-auto w-96 `}
+      <Image className={``}
         src={src}
         alt="CardImage"
       />
