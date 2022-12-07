@@ -193,11 +193,11 @@ interface PosterLayoutProps {
   children: React.ReactNode
 }
 
-const PosterLayout: React.FC<PosterLayoutProps> = ({ children }) => {
+export const PosterLayout: React.FC<PosterLayoutProps> = ({ children }) => {
 
   return (
 
-    <div className='flex flex-col bg-gradient-to-r from-magenta to-darkpink justify-center items-center'>
+    <div className='flex bg-gradient-to-r from-magenta to-darkpink'>
       <motion.div
         initial="hidden"
         animate="enter"
