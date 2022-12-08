@@ -44,7 +44,7 @@ const Poster = () => {
       <PosterCardImage src={processTabel} bgcolor={'bg-gray-600'} />
       <PosterCardImage src={usecasediagram} bgcolor={'bg-red-600'} />
       <PosterCardImage src={uitgewerktProcess} bgcolor={'bg-gray-600'} />
-      <PosterCards src={rules} title={"Regels :"} text={"Ze hebben hier niet eigenlijk veel regels gewoon op tijd komen op werk en niet alle geheime dingen die hier worden gezegt door vertellen aan mensen. Het is zakkelijk maar nog steeds persoonlijk dus we hebben nogsteeds respect voor elkaars privacy en persoonlijke interacties wat het belangerijkste is"} bgColor={'bg-red-600'} />
+      <PosterCards src={rules} title={"Regels :"} text={"Ze hebben hier niet eigenlijk veel regels gewoon op tijd komen op werk en niet alle geheime dingen die hier worden gezegt door vertellen aan mensen. Het is zakkelijk maar nog steeds persoonlijk dus we hebben nogsteeds respect voor elkaars privacy en persoonlijke interacties wat het belangerijkste is."} bgColor={'bg-red-600'} />
       <PosterCards src={opinion} title={"Mening :"} text={"Persoonlijk vind ik het een leuke en gezelige plek. Tot nu toe is het heel leerzaam. Ik heb al best wel veel dingen geleerd die ik echt niet een paar weken of maanden geleden zou kunnen doen."} bgColor={`bg-gray-600 `} />
     </PosterLayout>
   )
@@ -197,7 +197,7 @@ export const PosterLayout: React.FC<PosterLayoutProps> = ({ children }) => {
 
   return (
 
-    <div className='flex bg-gradient-to-r from-magenta to-darkpink'>
+    <div className='flex bg-zinc-900 justify-center '>
       <motion.div
         initial="hidden"
         animate="enter"
