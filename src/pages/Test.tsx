@@ -21,17 +21,17 @@ export const Test = () => {
     const { scrollYProgress } = useScroll()
     const [scrollPercentage, setScrollPercentage] = useState<number>(0)
 
-    const [width, setWidth] = useState<number>(window.innerWidth);
+    // const [width, setWidth] = useState<number>(window.innerWidth);
 
-    useEffect(() => {
-        const updateWindowDimensions = () => {
-            const newWidth = window.innerWidth;
-            setWidth(newWidth);
-        };
-        window.addEventListener("resize", updateWindowDimensions);
+    // useEffect(() => {
+    //     const updateWindowDimensions = () => {
+    //         const newWidth = window.innerWidth;
+    //         setWidth(newWidth);
+    //     };
+    //     window.addEventListener("resize", updateWindowDimensions);
 
-        return () => window.removeEventListener("resize", updateWindowDimensions)
-    }, []);
+    //     return () => window.removeEventListener("resize", updateWindowDimensions)
+    // }, []);
 
     useEffect(() => {
         scrollY.onChange((latest) => {
@@ -53,75 +53,112 @@ export const Test = () => {
     return (
         <PosterLayout>
             <ProgressBarr progressPercentage={scrollPercentage} />
-            <AnimatedCardTitle src={image} title={"Stage Poster"} text={"Deze website gaat over elke opdracht die ik heb gemaakt voor mijn eerste stage periode bij Bizworx creative it solutions."}
+            <AnimatedCard
+                isVisible={true}
                 initialX={900}
                 inititalY={-1100}
                 lastY={-250}
                 duration={2}
-            />
-            <AnimatedCardLeft
-                isVisible={handleIsVisible(0.5)}
+            >
+                <div className="flex-col">
+                    <Image
+                        src={image}
+                        alt="CardImage"
+                    />
+                    <h1 className="text-8xl my-[50px] font-bold text-gray-100">Stage Poster</h1>
+                    <p className="text-4xl text-gray-400">
+                        Deze website gaat over elke opdracht die ik heb gemaakt voor mijn eerste stage periode bij Bizworx creative it solutions.
+                    </p>
+                </div>
+            </AnimatedCard>
+            <AnimatedCard
+                isVisible={handleIsVisible(0.1)}
                 src={transport} title={"Bereikbaarheid"} text={"Ik fiets elke dag. Het is best wel te doen paar plekken waar je moet stoppen maar niks te erg. Met de bus moet je nog een stuk lopen en als je de auto gebruikt ben je zoizo het snelst."}
                 initialX={400}
                 inititalY={-400}
                 lastY={-300}
                 duration={4}
-            />
+            >
+                <div className="flex-col">
+                    <Image
+                        src={transport}
+                        alt="CardImage"
+                    />
+                    <h1 className="text-8xl my-[50px] font-bold text-gray-100">Transport</h1>
+                    <p className="text-4xl text-gray-400">
+                        Deze website gaat over elke opdracht die ik heb gemaakt voor mijn eerste stage periode bij Bizworx creative it solutions.
+                    </p>
+                </div>
+            </AnimatedCard>
             {/* <AnimatedCardTwoImages
-                isVisible={handleIsVisible(0.14)}
+                isVisible={handleIsVisible(0.3)}
                 src={workPlace}
                 srcTwo={workPlaceTwo}
-                title={"Werkplaats"}
-                text={"Ik vind dat de sfeer helemaal geweldig hier iedereen kan met elkaar lachen en je kan ook zelfstandig voor jezelf gaan werken en maar tegelijkertijd nogsteeds voor hulp vragen als je echt vast zit."}
-                initialx={900}
-                lastx={900}
+                title={"Kantoor"}
+                text={"Ik vind dat de sfeer hiet helemaal geweldig is, want iedereen kan met elkaar lachen en je kan ook zelfstandig voor jezelf gaan werken en tegelijkertijd nog steeds vragen als je echt vast zit en iemand anders zijn Perspectief  wil weten."}
+                initialX={900}
+                inititalY={-500}
+                lastY={-250}
                 duration={2}
-                height={1250}
-            />
+            /> */}
 
-            <AnimatedCardRight isVisible={handleIsVisible(0.2)}
+            {/* <AnimatedCardRight isVisible={handleIsVisible(0.53)}
                 src={Lunch}
                 title={"Pauzes"}
-                text={"We hebben vaak pauze ergens tussen 12:00 en 13:00 gewoon voor een kleine lunch en een beetje praten over dingen die er zijn gebeurt op het nieuws of gewoon door het weekend. Op maandag doen ze altijd de boodschappen Ik heb mijn eigen eten dus ik ga nooit eigenlijk mee ik lunch wel gewoon nogsteeds met hun samen."}
-                initialx={2500}
-                lastx={1700}
-                duration={4}
-                height={950}
-            />
-            <AnimatedCardTwoText isVisible={handleIsVisible(0.32)}
-                src={organogram}
-                text={"De mensen waar ik mee werk hier hebben niet echt een organogram zelf of een type hierarchy, maar jeroen zij dat ze meer een driehoek zijn ze zijn allemaal belangerijk in het bedrijf en werken allemaal samen met elkaar om er iets van te maken. Tim is de hoofdpersoon van alle software creëren Koen is de lead egineer van het bedrijf haar neemt ook elk telefoontje op en praat met klanten en helpt ze met hun pc en andere elektronica en Jeroen is de founder van Bizworx hij helpt voornamelijk Tim met een tweede perspectief op problemen en praat ook met Koen veel over ideeën over het bedrijf."} textTwo={"Ik ben Davide één van de stage personen ik zit in het midden van de driehoek wel meer geleunt naar Tim natuurlijk omdat ik ook software develepor/programmeren doe en Tim is mijn begeleider op Bizworx. We hebben ook nog een ander stage persoon die heet Ali hij is meer aan de engineering stuck dus hij zit ook meer gericht naar Koen die hem begeleid en tips geeft."}
-                initialx={900}
-                lastx={900}
-                duration={7}
-                height={900}
-            />
+                text={"We hebben vaak pauze ergens tussen 12:00 en 13:00 gewoon voor een kleine lunch en een beetje praten over dingen die er zijn gebeurt op het nieuws of gewoon door het weekend. Op maandag doen ze altijd de boodschappen Ik heb mijn eigen eten dus ik ga nooit eigenlijk mee ik lunch wel gewoon nog steeds met hun samen."}
 
-            <AnimatedCardImage isVisible={handleIsVisible(0.44)}
+                initialX={2500}
+                inititalY={0}
+                lastY={1700}
+                duration={4}
+            /> */}
+            <AnimatedCard
+                isVisible={handleIsVisible(0)}
+                initialX={900}
+                inititalY={0}
+                duration={7}          >
+                <div className="flex-col ">
+                    <h1 className="text-xl font-bold text-zinc-400">Title</h1>
+                    <h2 className="text-xl text-gray-400 my-2">
+                        De mensen waar ik mee werk hier hebben niet echt een organogram zelf of een type hiërarchie, maar jeroen zij dat ze meer een driehoek zijn ze zijn allemaal belangerijk in het bedrijf en werken allemaal samen met elkaar om er iets van te maken. Tim is de hoofdpersoon van alle software creëren Koen is de lead egineer van het bedrijf haar neemt ook elk telefoontje op en praat met klanten en helpt ze met hun pc en andere elektronica en Jeroen is de founder van Bizworx hij helpt voornamelijk Tim met een tweede perspectief op problemen en praat ook met Koen veel over ideeën over het bedrijf.
+                    </h2>
+                    <h1 className=" text-xl font-bold text-zinc-400">title2</h1>
+                    <h3 className="text-xl text-gray-400 my-2">
+                        Ik ben Davide één van de stage personen ik zit in het midden van de driehoek wel meer geleunt naar Tim natuurlijk omdat ik ook software develepor/programmeren doe en Tim is mijn begeleider op Bizworx. We hebben ook nog een ander stage persoon die heet Ali hij is meer aan de engineering stuck dus hij zit ook meer gericht naar Koen die hem begeleid en tips geeft.
+                    </h3>
+                </div>
+                <Image
+                    className="p-2 "
+                    src={organogram}
+                    alt="CardImage"
+                />
+            </AnimatedCard>
+
+            {/* <AnimatedCardImage isVisible={handleIsVisible(0)}
                 src={processTabel}
-                initialx={900}
-                lastx={900}
+                initialX={900}
+                lastY={900}
+                text={""}
                 duration={4}
-                height={420}
-            />
+                inititalY={0}
+            /> */}
 
-            <AnimatedCardImage isVisible={handleIsVisible(0.55)}
+            {/* <AnimatedCardImage isVisible={handleIsVisible(0)}
                 src={usecasediagram}
                 initialx={900}
                 lastx={900}
                 duration={4}
-                height={750}
-            />
+            /> */}
 
-            <AnimatedCardImage isVisible={handleIsVisible(0.66)}
+            {/* <AnimatedCardImage isVisible={handleIsVisible(0)}
                 src={uitgewerktProcess}
                 initialx={900}
                 lastx={900}
                 duration={4}
                 height={580}
-            />
+            /> */}
 
-            <AnimatedCardRight isVisible={handleIsVisible(0.77)}
+            {/* <AnimatedCardRight isVisible={handleIsVisible(0)}
                 src={rules}
                 title={"Regels"}
                 text={"Ze hebben hier niet eigenlijk veel regels gewoon op tijd komen op werk en niet alle geheime dingen die hier worden gezegt door vertellen aan mensen. Het is zakkelijk maar nog steeds persoonlijk dus we hebben nogsteeds respect voor elkaars privacy en persoonlijke interacties wat het belangerijkste is."}
@@ -129,9 +166,9 @@ export const Test = () => {
                 lastx={1700}
                 duration={4}
                 height={850}
-            />
+            /> */}
 
-            <AnimatedCardLeft isVisible={handleIsVisible(0.88)}
+            {/* <AnimatedCardLeft isVisible={handleIsVisible(0)}
                 src={opinion}
                 title={"Mening"}
                 text={"Persoonlijk vind ik het een leuke en gezelige plek. Tot nu toe is het heel leerzaam. Ik heb al best wel veel dingen geleerd die ik echt niet een paar weken of maanden geleden zou kunnen doen."}
@@ -141,69 +178,37 @@ export const Test = () => {
                 height={850}
             /> */}
 
-        </PosterLayout>
+        </PosterLayout >
     )
 }
 
 
 interface AnimatedCardTitleProps {
+    children?: React.ReactNode;
     isVisible?: boolean;
-    src: StaticImageData;
-    initialX: number;
-    inititalY: number;
-    lastY: number;
-    title: string;
-    text: string;
+    src?: StaticImageData;
+    srcTwo?: StaticImageData;
+    initialX?: number;
+    inititalY?: number;
+    lastX?: number;
+    lastY?: number;
+    title?: string;
+    titleTwo?: string;
+    text?: string;
+    textTwo?: string;
     duration: number;
 }
 
-const AnimatedCardTitle: React.FC<AnimatedCardTitleProps> = ({ src, title, text, initialX, inititalY, lastY, duration }) => {
-    return (
-        <motion.div
-            className="flex-col justify-center items-start  bg-[#161b22] border border-gray-700 p-16 rounded-lg"
-            initial={{
-                x: initialX,
-                y: inititalY,
-                opacity: 0,
-                scale: 0.5
 
-            }}
-            animate={{
-                x: 0,
-                y: lastY,
-                opacity: 1,
-                scale: 1
-            }}
-            transition={{
-                default: {
-                    duration: duration,
-                    ease: [0, 0.71, 0.2, 1.01]
-                },
-            }}
-        >
-            <Image
-                src={src}
-                alt="CardImage"
-            />
-            <h1 className="text-8xl my-[50px] font-bold text-gray-100">{title}</h1>
-            <p className="text-4xl text-gray-400">
-                {text}
-            </p>
-        </motion.div>
-    )
-}
-
-
-const AnimatedCardLeft: React.FC<AnimatedCardTitleProps> = ({ isVisible, inititalY, initialX, src, title, text, duration }) => {
+const AnimatedCard: React.FC<AnimatedCardTitleProps> = ({ children, isVisible, initialX, duration }) => {
     return (
         <div className="h-screen">
             <AnimatePresence>
                 {isVisible && (
                     <motion.div
-                        className="flex-col justify-center items-start bg-[#161b22] border border-gray-700 p-8 rounded-lg"
+                        className="flex  bg-[#161b22] border border-gray-700 p-8 rounded-lg"
                         initial={{
                             x: initialX,
-                            y: inititalY,
                             opacity: 0,
                             scale: 0.5
                         }}
@@ -218,136 +223,9 @@ const AnimatedCardLeft: React.FC<AnimatedCardTitleProps> = ({ isVisible, initita
                                 duration: duration,
                                 ease: [0, 0.71, 0.2, 1.01]
                             },
-                        }
-
-                        }
-                    >
-                        <Image
-                            src={src}
-                            alt="CardImage"
-                        />
-                        <h1 className="text-6xl my-[50px] font-bold text-gray-100">{title}</h1>
-                        <p className="text-4xl text-gray-400">
-                            {text}
-                        </p>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
-    )
-}
-interface AnimatedCardTwoImagesProps {
-    isVisible: boolean;
-    src: StaticImageData;
-    srcTwo: StaticImageData;
-    initialx: number;
-    lastx: number;
-    title: string;
-    text: string;
-    duration: number;
-    height: number;
-}
-
-const AnimatedCardTwoImages: React.FC<AnimatedCardTwoImagesProps> = ({ isVisible, src, srcTwo, title, text, initialx, lastx, duration, height }) => {
-    return (
-        <div className="h-screen flex">
-            <AnimatePresence>
-                {isVisible && (
-                    <motion.div
-                        className="max-w-screen-md justify-center items-center bg-[#161b22] border border-gray-700 p-8 rounded-lg"
-                        style={{
-                            height: height
-                        }}
-                        initial={{
-                            x: initialx,
-                            opacity: 0,
-                            scale: 0.5
-                        }}
-                        animate={{
-                            x: lastx,
-                            opacity: 1,
-                            scale: 1
-                        }}
-                        transition={{
-                            default: {
-                                duration: duration,
-                                ease: [0, 0.71, 0.2, 1.01]
-                            }
                         }}
                     >
-                        <div className="flex-col justify-center items-start">
-                            <Image className="p-2 m-2"
-                                src={src}
-                                alt="cardImage"
-                            />
-                            <h1 className="text-6xl my-[50px] font-bold text-gray-100">{title}</h1>
-                            <span className="text-4xl text-gray-400">
-                                {text}
-                            </span>
-                            <Image className="p-2 m-2"
-                                src={srcTwo}
-                                alt="cardImage"
-                            />
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
-    )
-}
-interface AnimatedCardRightProps {
-    isVisible: boolean;
-    src: StaticImageData;
-    initialx: number;
-    lastx: number;
-    title: string;
-    text: string;
-    duration: number;
-    height: number;
-}
-const AnimatedCardRight: React.FC<AnimatedCardRightProps> = ({ isVisible, src, title, text, initialx, lastx, duration, height }) => {
-    return (
-        <div className="h-screen">
-            <AnimatePresence>
-                {isVisible && (
-                    <motion.div
-                        className="flex-col max-w-screen-md justify-center items-center bg-[#161b22] border border-gray-700 p-8 rounded-lg"
-                        style={{
-                            height: height
-                        }}
-                        initial={{
-                            x: initialx,
-                            opacity: 0,
-                            scale: 0.5
-
-                        }}
-                        animate={{
-                            x: lastx,
-                            opacity: 1,
-                            scale: 1
-                        }}
-                        transition={{
-                            default: {
-                                duration: duration,
-                                ease: [0, 0.71, 0.2, 1.01]
-                            },
-                        }
-
-                        }
-                    >
-                        <div className="flex-col justify-center items-start">
-                            <Image
-                                src={src}
-                                alt="CardImage"
-                            />
-                            <h1 className="text-6xl my-[50px] font-bold text-gray-100">{title}</h1>
-                            <span className="text-4xl text-gray-400">
-                                {text}
-                            </span>
-                            <div className="flex-col  mt-[300px] space-y-20 justify-center items-center">
-                            </div>
-                        </div >
-
+                        {children}
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -355,113 +233,216 @@ const AnimatedCardRight: React.FC<AnimatedCardRightProps> = ({ isVisible, src, t
     )
 }
 
-interface AnimatedCardTwoTextProps {
-    isVisible: boolean;
-    src: StaticImageData;
-    initialx: number;
-    lastx: number;
-    text: string;
-    textTwo: string;
-    duration: number;
-    height: number;
-}
+// const AnimatedCardTitle: React.FC<AnimatedCardTitleProps> = ({ src, title, text, initialX, inititalY, lastY, duration }) => {
+//     return (
+//         <motion.div
+//             className="flex-col justify-center items-start bg-[#161b22] border border-gray-700 p-16 rounded-lg"
+//             initial={{
+//                 x: initialX,
+//                 y: inititalY,
+//                 opacity: 0,
+//                 scale: 0.5
 
-const AnimatedCardTwoText: React.FC<AnimatedCardTwoTextProps> = ({ isVisible, src, text, textTwo, initialx, lastx, duration, height }) => {
-    return (
-        <div className="h-screen w-screen">
-            <AnimatePresence>
-                {isVisible && (
-                    <motion.div
-                        className="flex justify-center items-center bg-[#161b22] border border-gray-700 p-8 rounded-lg"
-                        style={{
-                            height: height
-                        }}
-                        initial={{
-                            x: initialx,
-                            opacity: 0,
-                            scale: 0.5
+//             }}
+//             animate={{
+//                 x: 0,
+//                 y: lastY,
+//                 opacity: 1,
+//                 scale: 1
+//             }}
+//             transition={{
+//                 default: {
+//                     duration: duration,
+//                     ease: [0, 0.71, 0.2, 1.01]
+//                 },
+//             }}
+//         >
+//             <Image
+//                 src={src}
+//                 alt="CardImage"
+//             />
+//             <h1 className="text-8xl my-[50px] font-bold text-gray-100">{title}</h1>
+//             <p className="text-4xl text-gray-400">
+//                 {text}
+//             </p>
+//         </motion.div>
+//     )
+// }
 
-                        }}
-                        animate={{
-                            x: lastx,
-                            opacity: 1,
-                            scale: 1
-                        }}
-                        transition={{
-                            default: {
-                                duration: duration,
-                                ease: [0, 0.71, 0.2, 1.01]
-                            },
-                        }
 
-                        }
-                    >
-                        <div className="flex justify-center items-start">
-                            <h3 className="text-3xl my-[50px] text-gray-400">{text}</h3>
-                            <Image className="p-2"
-                                src={src}
-                                alt="CardImage"
-                            />
-                            <span className="text-4xl text-gray-400">
-                                {textTwo}
-                            </span>
-                            <div className="flex mt-[300px] space-y-20 justify-center items-center">
-                            </div>
-                        </div >
+// const AnimatedCardLeft: React.FC<AnimatedCardTitleProps> = ({ isVisible, inititalY, initialX, src, title, text, duration }) => {
+//     return (
+//         <div className="h-screen">
+//             <AnimatePresence>
+//                 {isVisible && (
+//                     <motion.div
+//                         className="flex-col justify-center items-start bg-[#161b22] border border-gray-700 p-8 rounded-lg"
+//                         initial={{
+//                             x: initialX,
+//                             y: inititalY,
+//                             opacity: 0,
+//                             scale: 0.5
+//                         }}
+//                         animate={{
+//                             x: 0,
+//                             y: 0,
+//                             opacity: 1,
+//                             scale: 1
+//                         }}
+//                         transition={{
+//                             default: {
+//                                 duration: duration,
+//                                 ease: [0, 0.71, 0.2, 1.01]
+//                             },
+//                         }
 
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
-    )
-}
-interface AnimatedCardImageProps {
-    isVisible: boolean;
-    src: StaticImageData;
-    initialx: number;
-    lastx: number;
-    duration: number;
-    height: number;
-}
-const AnimatedCardImage: React.FC<AnimatedCardImageProps> = ({ isVisible, src, initialx, lastx, duration, height }) => {
-    return (
-        <div className="h-screen">
-            <AnimatePresence>
-                {isVisible && (
-                    <motion.div
-                        className="flex-col max-w-screen-md justify-center items-center object-fill bg-[#161b22] border border-gray-700 p-8     rounded-lg"
-                        style={{
-                            height: height
-                        }}
-                        initial={{
-                            x: initialx,
-                            opacity: 0,
-                            scale: 0.5
-                        }}
-                        animate={{
-                            x: lastx,
-                            opacity: 1,
-                            scale: 1
-                        }}
-                        transition={{
-                            default: {
-                                duration: duration,
-                                ease: [0, 0.71, 0.2, 1.01]
-                            }
-                        }}
-                    >
-                        <div className="flex-col justify-center items-start">
-                            <Image
-                                src={src}
-                                alt="cardImage"
-                            />
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
-    )
-}
+//                         }
+//                     >
+//                         <Image
+//                             src={src}
+//                             alt="CardImage"
+//                         />
+//                         <h1 className="text-6xl my-[50px] font-bold text-gray-100">{title}</h1>
+//                         <p className="text-4xl text-gray-400">
+//                             {text}
+//                         </p>
+//                     </motion.div>
+//                 )}
+//             </AnimatePresence>
+//         </div>
+//     )
+// }
+
+
+
+// const AnimatedCardTwoImages: React.FC<AnimatedCardTitleProps> = ({ isVisible, src, srcTwo, title, text, initialX, inititalY, duration }) => {
+//     return (
+//         <div className="h-screen">
+//             <AnimatePresence>
+//                 {isVisible && (
+//                     <motion.div
+//                         className="flex-col justify-center items-start bg-[#161b22] border border-gray-700 p-8 rounded-lg"
+//                         initial={{
+//                             x: initialX,
+//                             y: inititalY,
+//                             opacity: 0,
+//                             scale: 0.5
+//                         }}
+//                         animate={{
+//                             x: 0,
+//                             y: 0,
+//                             opacity: 1,
+//                             scale: 1
+//                         }}
+//                         transition={{
+//                             default: {
+//                                 duration: duration,
+//                                 ease: [0, 0.71, 0.2, 1.01]
+//                             }
+//                         }}
+//                     >
+//                         <Image className="p-2 m-2 h-auto w-auto"
+//                             src={src}
+//                             alt="cardImage"
+//                             style={{
+//                                 objectFit: "cover",
+//                             }}
+//                         />
+//                         <h1 className="text-6xl my-[50px] font-bold text-gray-100">{title}</h1>
+//                         <span className="text-4xl text-gray-400">
+//                             {text}
+//                         </span>
+
+//                     </motion.div>
+//                 )}
+//             </AnimatePresence>
+//         </div>
+//     )
+// }
+
+// const AnimatedCardRight: React.FC<AnimatedCardTitleProps> = ({ isVisible, src, title, text, initialX, inititalY, duration }) => {
+//     return (
+//         <div className="h-screen">
+//             <AnimatePresence>
+//                 {isVisible && (
+//                     <motion.div
+//                         className="flex-col justify-center items-start bg-[#161b22] border border-gray-700 p-8 rounded-lg"
+//                         initial={{
+//                             x: initialX,
+//                             y: inititalY,
+//                             opacity: 0,
+//                             scale: 0.5
+
+//                         }}
+//                         animate={{
+//                             x: 0,
+//                             y: 0,
+//                             opacity: 1,
+//                             scale: 1
+//                         }}
+//                         transition={{
+//                             default: {
+//                                 duration: duration,
+//                                 ease: [0, 0.71, 0.2, 1.01]
+//                             },
+//                         }
+
+//                         }
+//                     >
+//                         <Image
+//                             src={src}
+//                             alt="CardImage"
+//                         />
+//                         <h1 className="text-6xl my-[50px] font-bold text-gray-100">{title}</h1>
+//                         <span className="text-4xl text-gray-400">
+//                             {text}
+//                         </span>
+//                     </motion.div>
+//                 )}
+//             </AnimatePresence>
+//         </div>
+//     )
+// }
+
+
+
+
+// const AnimatedCardImage: React.FC<AnimatedCardTitleProps> = ({ isVisible, src, initialX, lastY, duration }) => {
+//     return (
+//         <div className="h-screen">
+//             <AnimatePresence>
+//                 {isVisible && (
+//                     <motion.div
+//                         className="flex-col justify-center items-start object-fill bg-[#161b22] border border-gray-700 p-8 rounded-lg"
+//                         initial={{
+//                             x: initialX,
+//                             opacity: 0,
+//                             scale: 0.5
+//                         }}
+//                         animate={{
+//                             x: 0,
+//                             y: 0,
+//                             opacity: 1,
+//                             scale: 1
+//                         }}
+//                         transition={{
+//                             default: {
+//                                 duration: duration,
+//                                 ease: [0, 0.71, 0.2, 1.01]
+//                             }
+//                         }}
+//                     >
+//                         <Image
+//                             src={src}
+//                             alt="cardImage"
+//                         />
+//                     </motion.div>
+//                 )}
+//             </AnimatePresence>
+//         </div>
+//     )
+// }
+
 type ProgressBarrProps = {
     progressPercentage: number
 }
