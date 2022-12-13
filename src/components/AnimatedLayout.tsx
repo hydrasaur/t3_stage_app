@@ -13,18 +13,18 @@ export const variants = {
 
 const AnimatedLayout: React.FC<AnimatedLayoutProps> = ({ children }) => {
     return (
-        <motion.main
-            initial="hidden"
-            animate="enter"
-            exit="exit"
-            variants={variants}
-            transition={{ type: 'linear' }}
-            className="flex flex-col items-start w-full 
-              px-8 sm:px-16 md:px-36 lg:px-52 xl:px-80 2xl:px-96
-              pt-24 h-full"
-        >
-            {children}
-        </motion.main>
+        <div className='flex bg-[#161b22] text-white justify-center'>
+            <motion.main
+                initial="hidden"
+                animate="enter"
+                exit="exit"
+                variants={variants}
+                transition={{ type: 'linear' }}
+                className="flex-col pt-16 max-w-5xl"
+            >
+                {children}
+            </motion.main>
+        </div>
     )
 }
 

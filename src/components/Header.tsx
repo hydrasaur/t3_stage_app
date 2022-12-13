@@ -6,7 +6,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ title, description }) => {
   return (
-    <div>
+    <div className="flex-col w-full justify-center items-center">
       <h1 className="caret-blue-600 no-underline m-0 leading-5 text-3xl text-center my-4">
         <span>{title}</span>
       </h1>

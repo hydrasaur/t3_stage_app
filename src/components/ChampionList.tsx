@@ -7,9 +7,7 @@ interface ChampionsListProps {
 }
 
 const ChampionsList: React.FC<ChampionsListProps> = ({ champions }) => {
-   console.log(champions);
 
-   // console.log(champions);
 
    const [search, setSearch] = useState<string>("");
    const [select, setSelect] = useState<string>("");
@@ -18,10 +16,10 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ champions }) => {
 
    return (
       <div>
-         <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2  justify-center mx-auto">
+         <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2  justify-center mx-auto border border-gray-700">
             <div className="flex flex-col">
                <label>Champ name:</label>
-               <input className="border-black border-solid border m-2"
+               <input className="bg-[#161b22] border-solid border border-gray-700 m-2"
                   type="text"
                   placeholder="which champ?"
                   value={search}
@@ -30,7 +28,7 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ champions }) => {
             </div>
             <div className="flex flex-col w-80">
                Roles
-               <select className="border border-solid border-black m-2"
+               <select className="border border-solid border-gray-700 bg-[#161b22] m-2"
                   id="tags"
                   value={select}
                   onChange={(e) => setSelect(e.target.value)}
@@ -44,7 +42,7 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ champions }) => {
                </select>
             </div>
          </div>
-         <div className="grid mx-4  gap-4 sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-3 content-center justify-center">
+         <div className="grid mx-4  gap-4 sm:grid-cols-2 lg:grid-cols-5 md:grid-cols-3 content-center justify-center">
             {Object.entries(champions.data)
                .filter((champion: any) => {
                   // full text search filter

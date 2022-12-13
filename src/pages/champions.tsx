@@ -19,10 +19,11 @@ export const Champions: React.FC<ChampionsProps> = ({ champions }) => {
   return (
     <AnimatedLayout>
       <Header
-        title="champion list"
-        description="this is a list of the playable champions in LoL"
+        title="Champion list"
+        description="This is a list of the playable champions in LoL"
       />
-      <ChampionsList champions={champions} />
+      <FavoriteList champions={champions.data} />
+      {/* <ChampionsList champions={champions} /> */}
     </AnimatedLayout>
   );
 };
@@ -42,3 +43,4 @@ export const getStaticProps = async () => {
 };
 
 export default Champions;
+
