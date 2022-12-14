@@ -1,24 +1,20 @@
-import type {NextPage} from 'next'
-import {signIn, signOut, useSession} from 'next-auth/react'
+import type { NextPage } from 'next'
+import { signIn, signOut, useSession } from 'next-auth/react'
+import Link from 'next/link'
+import AnimatedLayout from '../components/AnimatedLayout'
 
-const Home: NextPage = () => {
-  const {data: session} = useSession()
-
-  if (session) {
-    return (
-      <>
-        You&apos;re signed in! Congratulations! <br />
-        <button onClick={() => signOut()}>Sign out</button>
-      </>
-    )
-  }
-
+const SignIn: NextPage = () => {
+  const { data: session } = useSession()
   return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn('discord')}>Sign in</button>
-    </>
-  )
-}
+    <AnimatedLayout>
+      <Link href="/Signin" >
+        <button className="rounded bg-zinc-300 text-black" >
+          Create New
+        </button>
+      </Link>
+    </AnimatedLayout>
+  );
+};
 
-export default Home
+export default SignIn
+

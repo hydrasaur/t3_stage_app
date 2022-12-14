@@ -33,7 +33,7 @@ const FavoriteList: React.FC<Props> = (champions: any) => {
       {favoriteList.map((champion: any, index: number) => {
         console.log(champion[1].image);
         return (
-          <div key={index} className="flex border rounded-md border-gray-700 font-serif p-4 space-x-6">
+          <div key={index} className="flex border rounded-md bg-[#161b22] border-gray-700 font-serif p-4 space-x-6">
             <div className="relative">
               <Image
                 className="rounded-3xl "

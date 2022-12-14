@@ -13,7 +13,7 @@ export const variants = {
 
 const AnimatedLayout: React.FC<AnimatedLayoutProps> = ({ children }) => {
     return (
-        <div className='flex bg-[#161b22] text-white justify-center'>
+        <div className='flex bg-[#0d1116] text-white justify-center'>
             <motion.main
                 initial="hidden"
                 animate="enter"
