@@ -23,7 +23,7 @@ export const Champions: React.FC<ChampionsProps> = ({ champions }) => {
         description="This is a list of the playable champions in LoL"
       />
       <FavoriteList champions={champions.data} />
-      {/* <ChampionsList champions={champions} /> */}
+      <ChampionsList champions={champions} />
     </AnimatedLayout>
   );
 };

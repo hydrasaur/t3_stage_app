@@ -16,7 +16,7 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ champions }) => {
 
    return (
       <div>
-         <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2  justify-center mx-auto border border-gray-700">
+         <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:grid-cols-2 m-4 justify-center mx-auto border border-gray-700">
             <div className="flex flex-col">
                <label>Champ name:</label>
                <input className="bg-[#161b22] border-solid border border-gray-700 m-2"
