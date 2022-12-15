@@ -2,19 +2,21 @@ import type { NextPage } from 'next'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import AnimatedLayout from '../components/AnimatedLayout'
+import AuthenticationButton from '../components/common/AuthButton';
 
 const SignIn: NextPage = () => {
   const { data: session } = useSession()
+
   return (
     <AnimatedLayout>
-      <Link href="/Signin" >
-        <button className="rounded bg-zinc-300 text-black" >
-          Create New
-        </button>
-      </Link>
+      <div className="h-screen">
+        <AuthenticationButton />
+
+        <pre>{JSON.stringify(session, null, 2)}</pre>
+      </div>
     </AnimatedLayout>
   );
 };
 
-export default SignIn
 
+export default SignIn

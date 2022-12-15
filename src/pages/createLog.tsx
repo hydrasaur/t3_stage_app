@@ -83,7 +83,7 @@ const CreateLogPage = () => {
                         <p className="text-emerald-700"></p>
                     </div>
                     : <div className='flex justify-between'>
-                        <input disabled className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" type="submit" value="Create" />
+                        <input className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none" type="submit" value="Create" />
 
                         <NextLink href="/logboek">
                             <button className="hover:shadow-form rounded-md border-red-600 bg-red-600  border-2 border-solid   py-3 px-8 ">Cancel</button>
