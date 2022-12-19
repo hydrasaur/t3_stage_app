@@ -1,7 +1,8 @@
 import { log } from "console";
+import { unstable_getServerSession } from "next-auth";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import { NextPage } from "next/types";
+import { GetServerSideProps, NextPage } from "next/types";
 import React, { useState } from "react";
 import { text } from "stream/consumers";
 import { string } from "zod";
@@ -9,6 +10,7 @@ import AnimatedLayout from "../components/AnimatedLayout";
 import DialogButton from "../components/common/DialogButton";
 import { NavLink } from "../components/Nav";
 import { trpc } from "../utils/trpc";
+import { authOptions } from "./api/auth/[...nextauth]";
 
 const Logboek: NextPage = () => {
 
@@ -72,3 +74,19 @@ const LogCard: React.FC<LogCardProps> = ({ id, handleDelete, date, dayInfo }) =>
     </div>
   );
 };
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const session = await unstable_getServerSession(ctx.req, ctx.res, authOptions)
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      }
+    }
+  }
+  return {
+    props: {},
+  }
+}

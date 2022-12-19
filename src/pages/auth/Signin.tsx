@@ -17,13 +17,15 @@ type SignInProps = {
 export const Signin: React.FC<SignInProps> = ({ providers }) => {
   return (
     <AnimatedLayout>
-      {Object.values(providers).map((provider) => (
-        <div key={provider.name}>
-          <button onClick={() => signIn(provider.id)}>
-            Sign in with discord {provider.name}
-          </button>
-        </div>
-      ))}
+      <div className='h-screen'>
+        {Object.values(providers).map((provider) => (
+          <div key={provider.name}>
+            <button className='bg-[#404eed] p-2' onClick={() => signIn(provider.id)}>
+              Sign in with {provider.name}
+            </button>
+          </div>
+        ))}
+      </div>
     </AnimatedLayout>
   )
 }

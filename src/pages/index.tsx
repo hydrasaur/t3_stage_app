@@ -10,9 +10,9 @@ const SignIn: NextPage = () => {
   return (
     <AnimatedLayout>
       <div className="h-screen">
-        <AuthenticationButton />
+        <h1 className='text-5xl'>Welcome to my PosterHomePage :D</h1>
+        <p className='text-3xl'>please sign in at the topright of the screen</p>
 
-        <pre>{JSON.stringify(session, null, 2)}</pre>
       </div>
     </AnimatedLayout>
   );
