@@ -73,7 +73,7 @@ export const Test = () => {
                 initialX={400}
                 inititalY={-400}
                 lastY={-300}
-                duration={4}
+                duration={2}
             >
                 <div className="flex-col">
                     <Image
@@ -104,7 +104,7 @@ export const Test = () => {
             <AnimatedCard
                 isVisible={handleIsVisible(0.3)}
                 initialX={900}
-                duration={4}
+                duration={2}
             >
                 <div className="flex-col">
                     <Image
@@ -119,7 +119,8 @@ export const Test = () => {
             <AnimatedCard
                 isVisible={handleIsVisible(0.4)}
                 initialX={900}
-                duration={7}
+                duration={2}
+                isMaxHeight={true}
             >
                 <div className="flex-col">
                     <h1 className="text-4xl font-bold text-zinc-400">Bizworx Personeel</h1>
@@ -140,7 +141,7 @@ export const Test = () => {
             <AnimatedCard
                 isVisible={handleIsVisible(0.5)}
                 initialX={900}
-                duration={4}
+                duration={2}
             >
                 <div className="flex-col">
                     <h1 className="text-4xl font-bold text-zinc-400">Processen</h1>
@@ -155,7 +156,7 @@ export const Test = () => {
             <AnimatedCard
                 isVisible={handleIsVisible(0.62)}
                 initialX={900}
-                duration={4}
+                duration={2}
             >
                 <div className="flex-col">
                     <h1 className="text-4xl font-bold text-zinc-400">Usecasediagram</h1>
@@ -164,6 +165,7 @@ export const Test = () => {
                         className="p-2"
                         src={usecasediagram}
                         alt="CardImage"
+
                     />
                 </div>
 
@@ -171,7 +173,7 @@ export const Test = () => {
             <AnimatedCard
                 isVisible={handleIsVisible(0.72)}
                 initialX={900}
-                duration={4}
+                duration={2}
             >
                 <div className="flex-col">
                     <h1 className="text-4xl font-bold text-zinc-400">ProcessUitwerking</h1>
@@ -186,7 +188,7 @@ export const Test = () => {
             <AnimatedCard
                 isVisible={handleIsVisible(0.83)}
                 initialX={900}
-                duration={4}
+                duration={2}
             >
                 <div className="flex-col">
                     <Image className="p-2"
@@ -200,7 +202,7 @@ export const Test = () => {
             <AnimatedCard
                 isVisible={handleIsVisible(0.93)}
                 initialX={-300}
-                duration={4}
+                duration={2}
             >
                 <div className="flex-col">
                     <Image className="p-2"
@@ -217,6 +219,7 @@ export const Test = () => {
 
 
 interface AnimatedCardTitleProps {
+    isMaxHeight?: Boolean;
     children?: React.ReactNode;
     isVisible?: boolean;
     src?: StaticImageData;
@@ -231,13 +234,13 @@ interface AnimatedCardTitleProps {
     textTwo?: string;
     duration: number;
 }
-const AnimatedCard: React.FC<AnimatedCardTitleProps> = ({ children, isVisible, initialX, duration }) => {
+const AnimatedCard: React.FC<AnimatedCardTitleProps> = ({ isMaxHeight, children, isVisible, initialX, duration }) => {
     return (
-        <div className="h-screen">
+        <div className="flex-col" style={{ height: !isMaxHeight ? "100vh" : "2000px" }}>
             <AnimatePresence>
                 {isVisible && (
                     <motion.div
-                        className="flex  bg-[#161b22] border border-gray-700 p-8 rounded-lg"
+                        className="flex bg-[#161b22] border border-gray-700 p-8 rounded-lg"
                         initial={{
                             x: initialX,
                             opacity: 0,
@@ -293,13 +296,15 @@ const PosterLayout: React.FC<PosterLayoutProps> = ({ children }) => {
 
     return (
 
-        <div className='flex bg-zinc-900 justify-center '>
+        <div className='flex bg-zinc-900 justify-center items-center '>
             <motion.div
                 initial="hidden"
                 animate="enter"
                 exit="exit"
                 variants={variants}
-                transition={{ type: 'linear' }} className='max-w-screen-lg space-y-96'>
+                transition={{ type: 'linear' }}
+                className='max-w-screen-lg space-y-96'
+            >
                 {children}
             </motion.div>
         </div>

@@ -38,7 +38,7 @@ const Logboek: NextPage = () => {
   return (
     <AnimatedLayout>
       <Link href="/createLog" >
-        <button className="rounded bg-emerald-100 text-black hover:divide-emerald-500" >
+        <button className="rounded bg-emerald-100 text-black" >
           Create New
         </button>
       </Link>
