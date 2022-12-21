@@ -21,44 +21,48 @@ export const Signin: React.FC<SignInProps> = ({ providers }) => {
 
   return (
     <AnimatedLayout>
-      <div className='flex-col h-screen '>
+      <div className='flex-col h-screen'>
         <div className='flex-col m-7 p-6 border-zinc-600 bg-[#18181b]'>
           <h3 className='text-5xl font-serif'>Welcome back!</h3>
           <p className='text-1xl font-serif'>Sign in with one of your accounts to get started!</p>
 
           {Object.values(providers).map((provider) => {
             console.log(provider);
-            let color: string = '';
+            let className = 'flex-col m-6 p-6 border-zinc-600 bg-[#18181b]';
 
             // select color for each provider
             switch (provider.id) {
               case 'discord':
-                color = '#404eed';
+                className = 'flex justify-between w-full rounded-md p-2 bg-[#404eed]';
                 break;
               case 'google':
-                color = "#ffffff";
+                className = 'flex justify-between w-full rounded-md p-2 bg-[#ffffff]';
+
                 break;
               case 'reddit':
-                color = "#ff4500";
+                className = 'flex justify-between w-full rounded-md p-2 bg-[#ff4500]';
+
                 break;
               case 'twitch':
-                color = "#5c16c5";
+                className = 'flex justify-between w-full rounded-md p-2 bg-[#5c16c5]';
+
                 break;
               case 'twitter':
-                color = "#1d9bf0";
+                className = 'flex justify-between w-full rounded-md p-2 bg-[#1d9bf0]';
+
                 break;
 
             }
 
             // console.log(color);
             return (
-              <div key={provider.name} className='flex w-full my-2'>
+              <div key={provider.name} className='flex w-full my-2 text-black'>
                 <button
-                  className={'flex justify-between w-full rounded-md p-2' + "  " + `bg-[${color}]`}
+                  className={className}
                   onClick={() => signIn(provider.id)}
                 >
                   Sign in with {provider.name}
-                  <Image
+                  <Image className='bg-[#1d9bf0]'
                     // src={discordlogo}
                     // alt='Discord Logo'
                     src={`/assets/${provider.id}.png`}
@@ -92,7 +96,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   }
 
 
-  const providers = await getProviders()
+  const providers = await getProviders();
+
   // PROPS => Client 
   return {
     props: {

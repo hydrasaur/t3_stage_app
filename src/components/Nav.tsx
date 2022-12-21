@@ -11,11 +11,11 @@ const Nav = () => {
     <nav className="h-12 p-3 bg-black flex items-center justify-start fixed top-0 right-0 left-0 z-10">
       <ul className="flex justify-center items-center list-none flex-grow">
         <NavLink href="/" title="Home" />
-        <NavLink href="https://github.com/hydrasaur/t3_stage_app" title="Source" />
         <NavLink href="/champions" title="League" />
-        <NavLink href="https://loldle.net/" title="Test your nolig" />
-        {!session ? null : <NavLink href="/logboek" title="Logboek" />}
         <NavLink href="/poster" title="Poster" />
+        {!session ? null : <NavLink href="/logboek" title="Logboek" />}
+        <NavLink href="https://github.com/hydrasaur/t3_stage_app" title="Source" target="_blank" />
+        <NavLink href="https://loldle.net/" title="Test your nolig" target="_blank" />
         <div className="flex-grow" />
         <AuthenticationButton />
       </ul>
@@ -28,12 +28,13 @@ export default Nav;
 interface NavigatieLinkProps {
   href: string
   title: string
+  target?: string
 }
 
-export const NavLink: React.FC<NavigatieLinkProps> = ({ href, title }) => {
+export const NavLink: React.FC<NavigatieLinkProps> = ({ href, title, target }) => {
   return (
     <li className="my-1 mx-4">
-      <Link href={href} style={{ color: "grey" }}>
+      <Link href={href} style={{ color: "grey" }} rel="noopener noreferrer" target={target}>
         {title}
       </Link>
     </li>

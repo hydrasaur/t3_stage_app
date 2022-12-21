@@ -3,6 +3,7 @@ import ChampionsList from "../components/ChampionList";
 import FavoriteList from "../components/FavoriteList";
 import { motion } from "framer-motion";
 import AnimatedLayout from "../components/AnimatedLayout";
+import { GetServerSideProps } from "next";
 
 interface ChampionsProps {
   champions: any
@@ -28,7 +29,7 @@ export const Champions: React.FC<ChampionsProps> = ({ champions }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(
     `http://ddragon.leagueoflegends.com/cdn/9.18.1/data/en_US/champion.json`
   );

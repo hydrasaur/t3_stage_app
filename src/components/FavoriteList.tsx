@@ -11,7 +11,7 @@ type Props = {
 
 const FavoriteList: React.FC<Props> = (champions: any) => {
   // console.log("Favo component", Object.entries(champions.data));
-  console.log("data: ", champions);
+  // console.log("data: ", champions);
 
 
   const championsList = Object.entries(champions.champions);
@@ -25,13 +25,13 @@ const FavoriteList: React.FC<Props> = (champions: any) => {
     if (array.includes(champion[1].key)) return true;
   });
 
-  console.log("favoriteList", favoriteList);
+  // console.log("favoriteList", favoriteList);
 
 
   return (
     <div className="flex-col space-y-6">
       {favoriteList.map((champion: any, index: number) => {
-        console.log(champion[1].image);
+        // console.log(champion[1].image);
         return (
           <div key={index} className="flex border rounded-md bg-[#161b22] border-gray-700 font-serif p-4 space-x-6">
             <div className="relative">
