@@ -313,7 +313,6 @@ interface PosterLayoutProps {
 const PosterLayout: React.FC<PosterLayoutProps> = ({ children }) => {
 
     return (
-
         <div className='flex bg-zinc-900 justify-center items-center '>
             <motion.div
                 initial={{ x: 300, opacity: 0 }}
