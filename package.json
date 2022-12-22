@@ -55,5 +55,17 @@
   },
   "ct3aMetadata": {
     "initVersion": "6.6.0"
-  }
+  },
+  "description": "This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hydrasaur/t3_stage_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hydrasaur/t3_stage_app/issues"
+  },
+  "homepage": "https://github.com/hydrasaur/t3_stage_app#readme"
 }
