@@ -11,6 +11,7 @@ import { env } from "../../../env/server.mjs";
 import { prisma } from "../../../server/db/client";
 
 const myUserId = "claatfcay0000uqvgovg21c2o";
+
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
   callbacks: {
