@@ -15,7 +15,7 @@ const variants = {
   exit: { opacity: 0, x: 0, y: -100 },
 }
 
-export const Champions: React.FC<ChampionsProps> = ({ champions }) => {
+const Champions: React.FC<ChampionsProps> = ({ champions }) => {
   // console.log(champions.data);
   return (
     <AnimatedLayout>
@@ -28,6 +28,8 @@ export const Champions: React.FC<ChampionsProps> = ({ champions }) => {
     </AnimatedLayout>
   );
 };
+
+export default Champions;
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(
@@ -43,5 +45,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default Champions;
 

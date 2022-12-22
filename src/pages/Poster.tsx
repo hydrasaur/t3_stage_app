@@ -17,7 +17,7 @@ import stylesheet from "../styles/Test.module.css"
 import { variants } from '../components/AnimatedLayout'
 import ScrollTopButton from "../components/ScrollTopButton"
 
-export const Test = () => {
+const Poster = () => {
     const { scrollY } = useScroll()
     const { scrollYProgress } = useScroll()
     const [scrollPercentage, setScrollPercentage] = useState<number>(0)
@@ -237,6 +237,8 @@ export const Test = () => {
     )
 }
 
+export default Poster
+
 
 interface AnimatedCardTitleProps {
     isMaxHeight?: boolean;
@@ -300,7 +302,6 @@ const ProgressBarr: React.FC<ProgressBarrProps> = ({ progressPercentage }) => {
         </div>
     );
 };
-export default Test
 
 
 

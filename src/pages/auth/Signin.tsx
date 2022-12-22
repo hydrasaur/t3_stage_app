@@ -16,7 +16,7 @@ type SignInProps = {
   providers: Record<string, ClientSafeProvider>,
 }
 
-export const Signin: React.FC<SignInProps> = ({ providers }) => {
+const Signin: React.FC<SignInProps> = ({ providers }) => {
 
 
   return (
