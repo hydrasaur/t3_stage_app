@@ -239,7 +239,7 @@ export const Test = () => {
 
 
 interface AnimatedCardTitleProps {
-    isMaxHeight?: Boolean;
+    isMaxHeight?: boolean;
     children?: React.ReactNode;
     isVisible?: boolean;
     src?: StaticImageData;

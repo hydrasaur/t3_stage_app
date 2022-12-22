@@ -11,7 +11,7 @@ type DialogButtonProps = {
 }
 
 const DialogButton: React.FC<DialogButtonProps> = ({ title, description, dialogButtonText, buttonTitle, onClick, onDelete }) => {
-    let [isOpen, setIsOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
 
     function closeModal() {
         setIsOpen(false)

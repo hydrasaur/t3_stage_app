@@ -51,7 +51,7 @@ const FavoriteList: React.FC<Props> = (champions: any) => {
             <div className="flex">
               {champion[1].tags.map((tag: any, index: any) => {
                 return (
-                  <div style={{ padding: "5px" }}>
+                  <div key={index} style={{ padding: "5px" }}>
                     <h4 key={index}>{tag}</h4>
                   </div>
                 );

@@ -44,7 +44,7 @@ const Logboek: NextPage = () => {
       </Link>
 
       {data?.map((log) => {
-        return <LogCard id={log.id} handleDelete={handleDelete} date={log.date} dayInfo={log.info} />
+        return <LogCard key={log.id} id={log.id} handleDelete={handleDelete} date={log.date} dayInfo={log.info} />
       })}
     </AnimatedLayout>
   );
