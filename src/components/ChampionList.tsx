@@ -42,7 +42,7 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ champions }) => {
                </select>
             </div>
          </div>
-         <div className="grid mx-4  gap-4 sm:grid-cols-2 lg:grid-cols-5 md:grid-cols-3 content-center justify-center">
+         <div className="grid mx-4  gap-4 sm:grid-cols-2 lg:grid-cols-5 md:grid-cols-3 content-center justify-center ">
             {Object.entries(champions.data)
                .filter((champion: any) => {
                   // full text search filter
@@ -52,18 +52,9 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ champions }) => {
                   // } else {
                   //    return false;
                   // }
-
-                  // tag filter
-                  if (select === "") {
-                     return true;
-                  } else {
-                     if (champ.tags.includes(select) && champion[0].toLowerCase().includes(search.toLowerCase())) {
-                        return true;
-                     } else {
-                        return false;
-                     }
-                  }
-
+                  if (select === "") return true;
+                  if (champ.tags.includes(select) && champion[0].toLowerCase().includes(search.toLowerCase())) return true;
+                  return false;
 
                })
                .map((champion) => {

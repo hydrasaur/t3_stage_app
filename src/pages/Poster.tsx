@@ -15,6 +15,7 @@ import { StaticImageData } from "next/image"
 import React, { Children, useEffect, useRef, useState } from 'react'
 import stylesheet from "../styles/Test.module.css"
 import { variants } from '../components/AnimatedLayout'
+import ScrollTopButton from "../components/ScrollTopButton"
 
 export const Test = () => {
     const { scrollY } = useScroll()
@@ -82,7 +83,9 @@ export const Test = () => {
                     />
                     <h1 className="text-4xl my-[50px] font-bold text-gray-100">Bereikbaarheid</h1>
                     <p className="text-3xl text-gray-400">
-                        Ik fiets elke dag. Het is best wel te doen paar plekken waar je moet stoppen maar niks te erg. Met de bus moet je nog een stuk lopen en als je de auto gebruikt ben je zoizo het snelst.
+                        Ik fiets elke dag omdat ik alleen maar een fiets heb.
+                        Het is best wel te doen paar plekken waar je moet stoppen maar niks te erg.
+                        Met de bus moet je nog een stuk lopen en als je de auto gebruikt ben je zoizo het snelst.
                     </p>
                 </div>
             </AnimatedCard>
@@ -97,12 +100,13 @@ export const Test = () => {
                         alt="CardImage"
                     />
                     <h1 className="text-4xl font-bold text-zinc-400">Kantoor</h1>
-                    <h2 className="text-3xl text-gray-400">Ik vind dat de sfeer hier helemaal geweldig is, want iedereen kan met elkaar lachen en je kan ook zelfstandig voor jezelf gaan werken en tegelijkertijd nog steeds vragen als je echt vast zit en iemand anders zijn Perspectief  wil weten.</h2>
+                    <h2 className="text-3xl text-gray-400">Ik vind dat de sfeer hier helemaal geweldig is,
+                        want iedereen kan met elkaar lachen en je kan ook zelfstandig voor jezelf gaan werken en tegelijkertijd nog steeds vragen stellen als je echt vast zit en iemand anders zijn Perspectief nodig hebt om door te kunnen gaan.</h2>
 
                 </div>
             </AnimatedCard>
             <AnimatedCard
-                isVisible={handleIsVisible(0.3)}
+                isVisible={handleIsVisible(0.28)}
                 initialX={900}
                 duration={2}
             >
@@ -113,11 +117,13 @@ export const Test = () => {
                         alt="CardImage"
                     />
                     <h1 className="text-4xl font-bold text-zinc-400">Pauzes</h1>
-                    <h2 className="text-3xl text-gray-400">We hebben vaak pauze ergens tussen 12:00 en 13:00 gewoon voor een kleine lunch en een beetje praten over dingen die er zijn gebeurt op het nieuws of gewoon door het weekend. Op maandag doen ze altijd de boodschappen Ik heb mijn eigen eten dus ik ga nooit eigenlijk mee ik lunch wel gewoon nog steeds met hun samen en ik eet wel ook wat van hun eten.</h2>
+                    <h2 className="text-3xl text-gray-400">We hebben vaak pauze ergens tussen 12:00 en 13:00 gewoon voor een kleine lunch en een beetje praten over dingen die er zijn gebeurt op het nieuws of gewoon door het weekend.
+                        Op maandag doen ze altijd de boodschappen Ik heb mijn eigen eten dus ik ga nooit eigenlijk mee.
+                        ik lunch wel gewoon nog steeds met hun samen en ik eet wel ook wat van het eten dat ze halen.</h2>
                 </div>
             </AnimatedCard>
             <AnimatedCard
-                isVisible={handleIsVisible(0.4)}
+                isVisible={handleIsVisible(0.36)}
                 initialX={900}
                 duration={2}
                 isMaxHeight={true}
@@ -125,11 +131,17 @@ export const Test = () => {
                 <div className="flex-col">
                     <h1 className="text-4xl font-bold text-zinc-400">Bizworx Personeel</h1>
                     <h2 className="text-3xl text-gray-400 my-2">
-                        De mensen waar ik mee werk hier hebben niet echt een organogram zelf of een type hiërarchie, maar jeroen zij dat ze meer een driehoek zijn ze zijn allemaal belangerijk in het bedrijf en werken allemaal samen met elkaar om er iets van te maken. Tim is de hoofdpersoon van alle software creëren Koen is de lead egineer van het bedrijf hij neemt ook elk telefoontje op en praat met klanten en helpt ze met hun pc en andere elektronica en Jeroen is de founder van Bizworx hij helpt voornamelijk Tim met een tweede perspectief op problemen vamn code en praat ook met Koen veel over ideeën over het bedrijf.
+                        De mensen waar ik mee werk hier hebben niet echt een organogram zelf of een type hiërarchie,
+                        maar jeroen (de baas) zij dat ze meer een driehoek zijn ze zijn allemaal belangerijk in het bedrijf en werken allemaal samen met elkaar om er iets van te maken.
+                        Tim is de hoofdpersoon van alle software Creëren.
+                        Koen is de lead engineer van het bedrijf hij neemt ook elk telefoontje op en praat met klanten en helpt ze met hun pc en andere elektronica.
+                        En Jeroen is de founder van Bizworx hij helpt voornamelijk Tim met een tweede perspectief op problemen waar tim mee vast zit met zijn code en praat ook met Koen veel over ideeën over het bedrijf en of ze oplossingen kunnen verzinnen.
                     </h2>
                     <h1 className=" text-4xl font-bold text-zinc-400">Stage Personeel</h1>
                     <h3 className="text-3xl text-gray-400 my-2">
-                        Ik ben Davide ik ben één van de stage personen. Ik zit in het midden van de driehoek wel meer geleunt naar Tim natuurlijk omdat ik ook software develepor/programmeren doe en Tim is mijn begeleider op Bizworx. We hebben ook nog een ander stage persoon die heet Ali hij is meer aan de engineering stuck dus hij zit ook meer gericht naar Koen die hem begeleid en tips geeft.
+                        Ik ben Davide ik ben één van de stage personen.
+                        Ik zit in het midden van de driehoek wel meer geleunt naar Tim natuurlijk omdat ik ook aan de kant zit van software develepor/programmeren en Tim is mijn begeleider op Bizworx.
+                        We hebben ook nog een ander stage persoon die heet Ali hij is meer aan de engineering stuck dus hij zit ook meer gericht naar Koen die hem begeleid en tips geeft en ook veel leert.
                     </h3>
                     <Image
                         className="p-2"
@@ -139,7 +151,7 @@ export const Test = () => {
                 </div>
             </AnimatedCard>
             <AnimatedCard
-                isVisible={handleIsVisible(0.5)}
+                isVisible={handleIsVisible(0.55)}
                 initialX={900}
                 duration={2}
             >
@@ -154,7 +166,7 @@ export const Test = () => {
                 </div>
             </AnimatedCard>
             <AnimatedCard
-                isVisible={handleIsVisible(0.62)}
+                isVisible={handleIsVisible(0.65)}
                 initialX={900}
                 duration={2}
             >
@@ -171,13 +183,14 @@ export const Test = () => {
 
             </AnimatedCard>
             <AnimatedCard
-                isVisible={handleIsVisible(0.72)}
+                isVisible={handleIsVisible(0.73)}
                 initialX={900}
                 duration={2}
             >
                 <div className="flex-col">
                     <h1 className="text-4xl font-bold text-zinc-400">ProcessUitwerking</h1>
-                    <h2 className="text-3xl text-gray-400 my-2">Dit is één van de processen uitgelegt over wat er allemaal moet gebeuren en wat er allemaal fout kan gaan in het process.</h2>
+                    <h2 className="text-3xl text-gray-400 my-2">Dit is één van de processen uitgelegt over wat all de nodig heden zijn en wat er moet gebeuren zodat het process door kan gaan.
+                        Het laat ook zien wat er fout zou kunnen gaan en hoe het dan dat process stopt</h2>
                     <Image
                         className="p-2"
                         src={uitgewerktProcess}
@@ -186,7 +199,7 @@ export const Test = () => {
                 </div>
             </AnimatedCard>
             <AnimatedCard
-                isVisible={handleIsVisible(0.83)}
+                isVisible={handleIsVisible(0.82)}
                 initialX={900}
                 duration={2}
             >
@@ -196,13 +209,16 @@ export const Test = () => {
                         alt="CardImage"
                     />
                     <h1 className="text-4xl font-bold text-zinc-400">Regels</h1>
-                    <h2 className="text-3xl text-gray-400 my-2">Ze hebben hier niet eigenlijk veel regels gewoon op tijd komen op werk en niet alle geheime dingen die hier worden gezegt door vertellen aan mensen. Het is zakkelijk maar nog steeds persoonlijk dus we hebben nogsteeds respect voor elkaars privacy en persoonlijke interacties wat het belangerijkste is.</h2>
+                    <h2 className="text-3xl text-gray-400 my-2">Ze hebben hier niet eigenlijk veel regels gewoon op tijd komen op werk en dingen tot je zelf houden als je een prive conversatie hebt gehad met iemand en ook niet alles vertellen van het bedrijf aan andere mensen die hier worden gezegt in prive.
+                        Het is zakkelijk maar nog steeds persoonlijk dus we hebben nogsteeds respect voor elkaars privacy en persoonlijke interacties wat het belangerijkste is.</h2>
                 </div>
             </AnimatedCard>
             <AnimatedCard
-                isVisible={handleIsVisible(0.93)}
+                isVisible={handleIsVisible(0.92)}
                 initialX={-300}
                 duration={2}
+
+
             >
                 <div className="flex-col">
                     <Image className="p-2"
@@ -210,9 +226,13 @@ export const Test = () => {
                         alt="CardImage"
                     />
                     <h1 className="text-4xl font-bold text-zinc-400">Mening</h1>
-                    <h2 className="text-3xl text-gray-400 my-2">Persoonlijk vind ik het een leuke en gezelige plek. Tot nu toe is het heel leerzaam. Ik heb al best wel veel dingen geleerd die ik echt niet een paar weken of maanden geleden zou kunnen doen.</h2>
+                    <h2 className="text-3xl text-gray-400 my-2">Persoonlijk vind ik het een leuke en gezelige plek.
+                        Ik vind persoonlijk dat ik veel heb geleerd en nog meer kan leren van hun,
+                        en wat ik heb geleerd heel erg nuttig vind en ook op een goeie manier dingen uitgelegt gekregen heb.
+                        Ik heb al best wel veel dingen geleerd die ik echt niet een paar weken of maanden geleden zou kunnen doen dus daar ben ik ook best wel verbaast van.</h2>
                 </div>
             </AnimatedCard>
+            <ScrollTopButton />
         </PosterLayout >
     )
 }
@@ -310,4 +330,3 @@ const PosterLayout: React.FC<PosterLayoutProps> = ({ children }) => {
         </div>
     )
 }
-

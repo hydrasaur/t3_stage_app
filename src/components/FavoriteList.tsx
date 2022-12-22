@@ -33,7 +33,7 @@ const FavoriteList: React.FC<Props> = (champions: any) => {
       {favoriteList.map((champion: any, index: number) => {
         // console.log(champion[1].image);
         return (
-          <div key={index} className="flex border rounded-md bg-[#161b22] border-gray-700 font-serif p-4 space-x-6">
+          <div key={index} className="flex border rounded-md bg-[#161b22] border-gray-700 p-4 space-x-6">
             <div className="relative">
               <Image
                 className="rounded-3xl "
@@ -44,15 +44,15 @@ const FavoriteList: React.FC<Props> = (champions: any) => {
               />
             </div>
             <div>
-              <h1 className="text-5xl font-extrabold">{champion[0]}</h1>
-              <h2 className="text-3xl font-bold">{champion[1].title}</h2>
+              <h1 className="text-5xl font-extrabold font-mono">{champion[0]}</h1>
+              <h2 className="text-3xl font-bold font-mono">{champion[1].title}</h2>
               <p className="text-xl font-semibold">{champion[1].blurb}</p>
             </div>
             <div className="flex">
               {champion[1].tags.map((tag: any, index: any) => {
                 return (
                   <div style={{ padding: "5px" }}>
-                    <h4 className="font-serif" key={index}>{tag}</h4>
+                    <h4 key={index}>{tag}</h4>
                   </div>
                 );
               })}
