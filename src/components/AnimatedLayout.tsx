@@ -10,7 +10,6 @@ export const variants = {
     exit: { opacity: 0, x: 0, y: -100 },
 }
 
-
 const AnimatedLayout: React.FC<AnimatedLayoutProps> = ({ children }) => {
     return (
         <div className='flex bg-[#0d1116] text-white justify-center'>
