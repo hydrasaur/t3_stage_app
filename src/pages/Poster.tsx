@@ -22,18 +22,6 @@ const Poster = () => {
     const { scrollYProgress } = useScroll()
     const [scrollPercentage, setScrollPercentage] = useState<number>(0)
 
-    // const [width, setWidth] = useState<number>(window.innerWidth);
-
-    // useEffect(() => {
-    //     const updateWindowDimensions = () => {
-    //         const newWidth = window.innerWidth;
-    //         setWidth(newWidth);
-    //     };
-    //     window.addEventListener("resize", updateWindowDimensions);
-
-    //     return () => window.removeEventListener("resize", updateWindowDimensions)
-    // }, []);
-
     useEffect(() => {
         scrollY.onChange((latest) => {
             console.log("Page scroll: ", latest)
