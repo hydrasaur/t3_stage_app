@@ -19,7 +19,6 @@ const MyApp: AppType<{ session: Session | null }> = ({
         <AnimatePresence
           mode="wait"
           initial={false}
-          onExitComplete={() => window.scrollTo(0, 0)}
         >
           <Component {...pageProps} />
         </AnimatePresence>

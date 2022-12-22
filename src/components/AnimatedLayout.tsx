@@ -15,11 +15,14 @@ const AnimatedLayout: React.FC<AnimatedLayoutProps> = ({ children }) => {
     return (
         <div className='flex bg-[#0d1116] text-white justify-center'>
             <motion.main
-                initial="hidden"
-                animate="enter"
-                exit="exit"
-                variants={variants}
-                transition={{ type: 'linear' }}
+                initial={{ x: 300, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: 300, opacity: 0 }}
+                transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20,
+                }}
                 className="flex-col pt-16 max-w-5xl"
             >
                 {children}

@@ -5,7 +5,6 @@ import AuthenticationButton from '../components/common/AuthButton';
 import Link from 'next/link';
 
 const SignIn: NextPage = () => {
-  const { data: session } = useSession()
 
   return (
     <AnimatedLayout>
