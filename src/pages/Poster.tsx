@@ -247,7 +247,10 @@ interface AnimatedCardTitleProps {
 const AnimatedCard: React.FC<AnimatedCardTitleProps> = ({ isMaxHeight, children, isVisible, initialX, duration }) => {
     return (
         <div className="flex-col" style={{ height: !isMaxHeight ? "100vh" : "2000px" }}>
-            <AnimatePresence>
+            <AnimatePresence
+                mode="wait"
+                initial={false}
+            >
                 {isVisible && (
                     <motion.div
                         className="flex bg-[#161b22] border border-gray-700 p-8 rounded-lg"
@@ -261,6 +264,12 @@ const AnimatedCard: React.FC<AnimatedCardTitleProps> = ({ isMaxHeight, children,
                             y: 0,
                             opacity: 1,
                             scale: 1
+                        }}
+                        exit={{
+                            x: 0,
+                            y: 0,
+                            opacity: 0,
+                            scale: 0.5
                         }}
                         transition={{
                             default: {
@@ -307,11 +316,14 @@ const PosterLayout: React.FC<PosterLayoutProps> = ({ children }) => {
 
         <div className='flex bg-zinc-900 justify-center items-center '>
             <motion.div
-                initial="hidden"
-                animate="enter"
-                exit="exit"
-                variants={variants}
-                transition={{ type: 'linear' }}
+                initial={{ x: 300, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: 300, opacity: 0 }}
+                transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20,
+                }}
                 className='max-w-screen-lg space-y-96'
             >
                 {children}
