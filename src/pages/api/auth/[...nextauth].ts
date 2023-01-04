@@ -26,7 +26,7 @@ export const authOptions: NextAuthOptions = {
       if (user.id === myUserId) {
         return true;
       }
-      return false;
+      return true;
     },
   },
 

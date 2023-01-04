@@ -4,7 +4,7 @@ import AnimatedLayout from '../components/AnimatedLayout'
 import AuthenticationButton from '../components/common/AuthButton';
 import Link from 'next/link';
 
-const SignIn: NextPage = () => {
+const Home: NextPage = () => {
 
   return (
     <AnimatedLayout>
@@ -32,7 +32,7 @@ const SignIn: NextPage = () => {
             The third page was actually not a page at first it was going to be a basic poster that i had to make as a school assignment.
             But my mentor found that to be a little too simple and also having nothing to do with what i study so he came up with the idea to make the poster in one of the pages on the website since thats more of a challange and also is way more exciting.
             And it also looks alot better then a basic childish poster
-            <Link href="/champions">
+            <Link href="/poster">
               <button className='m-2 p-1 border border-black bg-zinc-700 hover:bg-zinc-500'>So much to read!</button>
             </Link>
           </div>
@@ -51,4 +51,4 @@ const SignIn: NextPage = () => {
 };
 
 
-export default SignIn
+export default Home

@@ -5,6 +5,7 @@ import DialogButton from "../components/common/DialogButton"
 import { type } from 'os'
 import Swal from 'sweetalert2'
 import AnimatedLayout from '../components/AnimatedLayout'
+import { NavLink } from '../components/Nav'
 
 const CreateLogPage = () => {
     // const mutation = trpc.log.
