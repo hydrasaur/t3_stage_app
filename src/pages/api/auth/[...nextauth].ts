@@ -10,7 +10,7 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { env } from "../../../env/server.mjs";
 import { prisma } from "../../../server/db/client";
 
-const myUserId = "claatfcay0000uqvgovg21c2o";
+const myUserId = "clchpwd1l0000uqw8ubb3i7ep";
 
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
@@ -22,10 +22,11 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
     async signIn({ user, account, profile, email, credentials }) {
-      // console.log("signIn", user, account, profile, email, credentials);
-      // if (user.id === myUserId) {
-      //   return true;
-      // }
+      console.log("signIn", user, account, profile, email, credentials);
+
+      if (user.id === myUserId) {
+        return true;
+      }
       return true;
     },
   },
