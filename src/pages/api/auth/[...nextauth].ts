@@ -22,10 +22,10 @@ export const authOptions: NextAuthOptions = {
       return session;
     },
     async signIn({ user, account, profile, email, credentials }) {
-      console.log("signIn", user, account, profile, email, credentials);
-      if (user.id === myUserId) {
-        return true;
-      }
+      // console.log("signIn", user, account, profile, email, credentials);
+      // if (user.id === myUserId) {
+      //   return true;
+      // }
       return true;
     },
   },
