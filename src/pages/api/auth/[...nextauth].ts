@@ -6,7 +6,6 @@ import GoogleProvider from "next-auth/providers/google";
 import RedditProvider from "next-auth/providers/reddit";
 // Prisma adapter for NextAuth, optional and can be removed
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
-
 import { env } from "../../../env/server.mjs";
 import { prisma } from "../../../server/db/client";
 
@@ -30,7 +29,6 @@ export const authOptions: NextAuthOptions = {
       return true;
     },
   },
-
   // Configure one or more authentication providers
   adapter: PrismaAdapter(prisma),
   providers: [
