@@ -16,7 +16,7 @@ const Logboek: NextPage = () => {
 
   const today = new Date()
 
-  const { data, isLoading, refetch } = trpc.log.getAll.useQuery();
+  const { data: logs, isLoading, refetch } = trpc.log.getAll.useQuery();
 
   const mutation = trpc.log.delete.useMutation()
 
@@ -43,9 +43,18 @@ const Logboek: NextPage = () => {
         </button>
       </Link>
 
-      {data?.map((log) => {
-        return <LogCard key={log.id} id={log.id} handleDelete={handleDelete} date={log.date} dayInfo={log.info} />
-      })}
+      {logs?.sort((a, b) => {
+        if (a.date > b.date) {
+          return 1;
+        }
+        if (a.date < b.date) {
+          return -1;
+        }
+        return 0;
+      })
+        .map((log) => {
+          return <LogCard key={log.id} id={log.id} handleDelete={handleDelete} date={log.date} dayInfo={log.info} />
+        })}
     </AnimatedLayout>
   );
 };
@@ -68,9 +77,7 @@ const LogCard: React.FC<LogCardProps> = ({ id, handleDelete, date, dayInfo }) =>
         <span className="font-light ">{date}</span>
         <DialogButton title='Confirmation to delete' description='Are you sure that you want to delete this log?' buttonTitle='Yes!' dialogButtonText="delete" onDelete={() => handleDelete(id)} />
       </div>
-      <div className="mt-2">
-        <p className="mt-2">{dayInfo}</p>
-      </div>
+      <p className="mt-2">{dayInfo}</p>
     </div>
   );
 };

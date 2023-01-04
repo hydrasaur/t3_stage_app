@@ -56,8 +56,7 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ champions }) => {
                   if (champ.tags.includes(select) && champion[0].toLowerCase().includes(search.toLowerCase())) return true;
                   return false;
 
-               })
-               .map((champion) => {
+               }).map((champion) => {
                   // console.log(champion[1].tags);
                   const champ = champion[1];
                   // eslint-disable-next-line react/jsx-key

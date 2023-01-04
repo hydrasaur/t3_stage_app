@@ -15,7 +15,7 @@ const Nav = () => {
         <NavLink href="/poster" title="Poster" />
         {!session ? null : <NavLink href="/logboek" title="Logboek" />}
         <NavLink href="https://github.com/hydrasaur/t3_stage_app" title="Source" target="_blank" />
-        <NavLink href="https://loldle.net/" title="Test your nolig" target="_blank" />
+        <NavLink href="https://loldle.net/" title="Test your knowledge" target="_blank" />
         <div className="flex-grow" />
         <AuthenticationButton />
       </ul>
