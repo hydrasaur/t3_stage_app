@@ -11,6 +11,7 @@ import DialogButton from "../components/common/DialogButton";
 import { NavLink } from "../components/Nav";
 import { trpc } from "../utils/trpc";
 import { authOptions } from "./api/auth/[...nextauth]";
+import Layout from "../components/Layout";
 
 const Logboek: NextPage = () => {
 

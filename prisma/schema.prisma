@@ -63,5 +63,5 @@ model VerificationToken {
 model LogPost {
   id   String @id @default(cuid())
   date String
-  info String
+  info String @db.Text
 }

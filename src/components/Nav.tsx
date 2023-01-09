@@ -13,6 +13,7 @@ const Nav = () => {
         <NavLink href="/" title="Home" />
         <NavLink href="/champions" title="League" />
         <NavLink href="/poster" title="Poster" />
+        <NavLink href="/Searchbar" title="Searchbar" />
         {!session ? null : <NavLink href="/logboek" title="Logboek" />}
         <NavLink href="https://github.com/hydrasaur/t3_stage_app" title="Source" target="_blank" />
         <NavLink href="https://loldle.net/" title="Test your knowledge" target="_blank" />

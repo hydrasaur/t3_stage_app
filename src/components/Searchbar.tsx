@@ -1,25 +1,18 @@
 import { useState } from "react";
 import { string } from "zod";
 import ChampionItem from "./ChampionItem";
-import { trpc } from "../utils/trpc";
 
-interface ChampionsListProps {
+interface SearchbarTestProps {
    champions?: any;
 }
 
-const ChampionsList: React.FC<ChampionsListProps> = ({ }) => {
+const SearchbarTest: React.FC<SearchbarTestProps> = ({ champions }) => {
 
 
    const [search, setSearch] = useState<string>("");
    const [select, setSelect] = useState<string>("");
 
    const tags = ["Marksman", "Support", "Tank", "Fighter", "Assassin", "Mage"];
-
-   const { data: champions } = trpc.champions.getChampions.useQuery({
-      name: search,
-      tags: tags,
-
-   })
 
    return (
       <div>
@@ -50,7 +43,7 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ }) => {
             </div>
          </div>
          <div className="grid mx-4  gap-4 sm:grid-cols-2 lg:grid-cols-5 md:grid-cols-3 content-center justify-center ">
-            {/* {Object.entries(champions.data)
+            {Object.entries(champions.data)
                .filter((champion: any) => {
                   // full text search filter
                   const champ = champion[1]
@@ -69,7 +62,7 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ }) => {
                   // eslint-disable-next-line react/jsx-key
                   return <ChampionItem champion={champ} />;
 
-               })} */}
+               })}
          </div>
       </div>
    );
@@ -77,4 +70,4 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ }) => {
 
 
 
-export default ChampionsList;
+export default SearchbarTest;
