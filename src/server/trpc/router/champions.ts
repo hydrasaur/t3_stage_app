@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { router, publicProcedure, protectedProcedure } from "../trpc";
-
+import fs from "fs";
 interface IChampion {
   version: string;
   id: string;
@@ -31,17 +31,7 @@ export const championsRoute = router({
       );
       const json = await res.json();
 
-      const arr = Object.keys(json).map(function (key, index) {
-        if (index === 3) {
-          return Object.entries(json[key]).map((c) => {
-            return {
-              c,
-            };
-          });
-        }
-      }) as Array<IChampion>;
-
-      console.log(arr);
+      //   create file
 
       return [];
     }),

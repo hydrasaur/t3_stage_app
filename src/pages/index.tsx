@@ -24,13 +24,13 @@ const Home: NextPage = () => {
             </Link>
           </div>
           <div className="border rounded-lg p-2 border-zinc-600 bg-[#18181b]">
-            There is also a page that only i can see and its the log page that i use to keep track of my work.
+            There is also a page that only i can see and its the log page that i use to keep track of my work that i have made at my internship.
             The reason only i can see it is because i have a sign in function with a session attatched to it and i uses to see who is signed in.
             And it checks if its the right person that is signed in if not then they get an error message if it is the right person they can keep going and look at the log page.
           </div>
           <div className="border rounded-lg p-2 border-zinc-600 bg-[#18181b]">
             The third page was actually not a page at first it was going to be a basic poster that i had to make as a school assignment.
-            But my mentor found that to be a little too simple and also having nothing to do with what i study so he came up with the idea to make the poster in one of the pages on the website since thats more of a challange and also is way more exciting.
+            But my mentor found that to be a little too simple and also having nothing to do with what i study. So he came up with the idea to make the poster in one of the pages on the website since thats more of a challange and also is way more exciting.
             And it also looks alot better then a basic childish poster
             <Link href="/poster">
               <button className='m-2 p-1 border border-black bg-zinc-700 hover:bg-zinc-500'>So much to read!</button>

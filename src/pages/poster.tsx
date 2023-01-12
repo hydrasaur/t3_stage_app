@@ -71,7 +71,7 @@ const Poster = () => {
                     />
                     <h1 className="text-4xl my-[50px] font-bold text-gray-100">Bereikbaarheid</h1>
                     <p className="text-3xl text-gray-400">
-                        Ik fiets elke dag omdat ik alleen maar een fiets heb.
+                        Ik fiets elke dag, omdat ik alleen maar 30 minuten moet fietsen naar mijn stage.
                         Het is best wel te doen paar plekken waar je moet stoppen maar niks te erg.
                         Met de bus moet je nog een stuk lopen en als je de auto gebruikt ben je zoizo het snelst.
                     </p>
@@ -88,8 +88,10 @@ const Poster = () => {
                         alt="CardImage"
                     />
                     <h1 className="text-4xl font-bold text-zinc-400">Kantoor</h1>
-                    <h2 className="text-3xl text-gray-400">Ik vind dat de sfeer hier helemaal geweldig is,
-                        want iedereen kan met elkaar lachen en je kan ook zelfstandig voor jezelf gaan werken en tegelijkertijd nog steeds vragen stellen als je echt vast zit en iemand anders zijn Perspectief nodig hebt om door te kunnen gaan.</h2>
+                    <h2 className="text-3xl text-gray-400">
+                        Ik vind dat de sfeer hier helemaal geweldig is,
+                        want iedereen kan met elkaar lachen,
+                        en je kan ook zelfstandig voor jezelf gaan werken en tegelijkertijd nog steeds vragen stellen als je echt vast zit en iemand anders zijn Perspectief nodig hebt om door het probleem kunnen komen.</h2>
 
                 </div>
             </AnimatedCard>
@@ -105,8 +107,9 @@ const Poster = () => {
                         alt="CardImage"
                     />
                     <h1 className="text-4xl font-bold text-zinc-400">Pauzes</h1>
-                    <h2 className="text-3xl text-gray-400">We hebben vaak pauze ergens tussen 12:00 en 13:00 gewoon voor een kleine lunch en een beetje praten over dingen die er zijn gebeurt op het nieuws of gewoon door het weekend.
-                        Op maandag doen ze altijd de boodschappen Ik heb mijn eigen eten dus ik ga nooit eigenlijk mee.
+                    <h2 className="text-3xl text-gray-400">
+                        We hebben vaak pauze ergens tussen 12:00 en 13:00 gewoon voor een kleine lunch en een beetje praten over dingen die er zijn gebeurt op het nieuws of gewoon door het weekend.
+                        Op maandag doen ze altijd de boodschappen Ik heb mijn eigen eten dus ik ga nooit eigenlijk mee met de boodschappen doen.
                         ik lunch wel gewoon nog steeds met hun samen en ik eet wel ook wat van het eten dat ze halen.</h2>
                 </div>
             </AnimatedCard>
@@ -120,16 +123,17 @@ const Poster = () => {
                     <h1 className="text-4xl font-bold text-zinc-400">Bizworx Personeel</h1>
                     <h2 className="text-3xl text-gray-400 my-2">
                         De mensen waar ik mee werk hier hebben niet echt een organogram zelf of een type hiërarchie,
-                        maar jeroen (de baas) zij dat ze meer een driehoek zijn ze zijn allemaal belangerijk in het bedrijf en werken allemaal samen met elkaar om er iets van te maken.
+                        maar jeroen (de baas) zij dat ze meer een driehoek zijn. Ze zijn allemaal belangerijk in het bedrijf en werken allemaal samen met elkaar om er iets van te maken.
                         Tim is de hoofdpersoon van alle software Creëren.
-                        Koen is de lead engineer van het bedrijf hij neemt ook elk telefoontje op en praat met klanten en helpt ze met hun pc en andere elektronica.
-                        En Jeroen is de founder van Bizworx hij helpt voornamelijk Tim met een tweede perspectief op problemen waar tim mee vast zit met zijn code en praat ook met Koen veel over ideeën over het bedrijf en of ze oplossingen kunnen verzinnen.
+                        Koen is de lead engineer van het bedrijf hij neemt ook elk telefoontje op en praat met klanten en helpt ze met hun problemen.
+                        En Jeroen is de founder van Bizworx hij helpt voornamelijk Tim met een tweede perspectief op problemen waar tim mee vast zit met zijn code,
+                        en praat ook met Koen veel over ideeën over het bedrijf en of ze oplossingen kunnen verzinnen.
                     </h2>
                     <h1 className=" text-4xl font-bold text-zinc-400">Stage Personeel</h1>
                     <h3 className="text-3xl text-gray-400 my-2">
-                        Ik ben Davide ik ben één van de stage personen.
+                        Ik ben Davide ik ben één van de stage personen bij bizworx.
                         Ik zit in het midden van de driehoek wel meer geleunt naar Tim natuurlijk omdat ik ook aan de kant zit van software develepor/programmeren en Tim is mijn begeleider op Bizworx.
-                        We hebben ook nog een ander stage persoon die heet Ali hij is meer aan de engineering stuck dus hij zit ook meer gericht naar Koen die hem begeleid en tips geeft en ook veel leert.
+                        We hebben ook nog een ander stage persoon die heet Ali hij is meer aan de engineering kant dus hij zit ook meer gericht naar Koen die hem begeleid en tips geeft en ook veel aanleert.
                     </h3>
                     <Image
                         className="p-2"
@@ -145,7 +149,8 @@ const Poster = () => {
             >
                 <div className="flex-col">
                     <h1 className="text-4xl font-bold text-zinc-400">Processen</h1>
-                    <h2 className="text-3xl text-gray-400 my-2">Dit is het begin process tussen bizworx en een klant van het aanvragen van een nieuw account.</h2>
+                    <h2 className="text-3xl text-gray-400 my-2">
+                        Dit is het begin process tussen bizworx en een klant van het aanvragen van een nieuw account.</h2>
                     <Image
                         className="p-2"
                         src={processTabel}
@@ -160,7 +165,8 @@ const Poster = () => {
             >
                 <div className="flex-col">
                     <h1 className="text-4xl font-bold text-zinc-400">Usecasediagram</h1>
-                    <h2 className="text-3xl text-gray-400 my-2">Deze usecase laat zien wat er gebeurt aan beide kanten van het aanvragen van een nieuw account.</h2>
+                    <h2 className="text-3xl text-gray-400 my-2"
+                    >Deze usecase laat zien wat er gebeurt aan beide kanten van het aanvragen van een nieuw account.</h2>
                     <Image
                         className="p-2"
                         src={usecasediagram}
@@ -177,7 +183,8 @@ const Poster = () => {
             >
                 <div className="flex-col">
                     <h1 className="text-4xl font-bold text-zinc-400">ProcessUitwerking</h1>
-                    <h2 className="text-3xl text-gray-400 my-2">Dit is één van de processen uitgelegt over wat all de nodig heden zijn en wat er moet gebeuren zodat het process door kan gaan.
+                    <h2 className="text-3xl text-gray-400 my-2">
+                        Dit is één van de processen uitgelegt over wat all de nodig heden zijn en wat er moet gebeuren zodat het process door kan gaan.
                         Het laat ook zien wat er fout zou kunnen gaan en hoe het dan dat process stopt</h2>
                     <Image
                         className="p-2"
@@ -197,8 +204,10 @@ const Poster = () => {
                         alt="CardImage"
                     />
                     <h1 className="text-4xl font-bold text-zinc-400">Regels</h1>
-                    <h2 className="text-3xl text-gray-400 my-2">Ze hebben hier niet eigenlijk veel regels gewoon op tijd komen op werk en dingen tot je zelf houden als je een prive conversatie hebt gehad met iemand en ook niet alles vertellen van het bedrijf aan andere mensen die hier worden gezegt in prive.
-                        Het is zakkelijk maar nog steeds persoonlijk dus we hebben nogsteeds respect voor elkaars privacy en persoonlijke interacties wat het belangerijkste is.</h2>
+                    <h2 className="text-3xl text-gray-400 my-2">
+                        Ze hebben hier niet eigenlijk veel regels, gewoon op tijd komen op werk en dingen tot je zelf houden.
+                        Het is zakkelijk maar nog steeds persoonlijk,
+                        dus we hebben nogsteeds respect voor elkaars privacy en persoonlijke interacties wat het belangerijkste is.</h2>
                 </div>
             </AnimatedCard>
             <AnimatedCard
@@ -214,10 +223,10 @@ const Poster = () => {
                         alt="CardImage"
                     />
                     <h1 className="text-4xl font-bold text-zinc-400">Mening</h1>
-                    <h2 className="text-3xl text-gray-400 my-2">Persoonlijk vind ik het een leuke en gezelige plek.
-                        Ik vind persoonlijk dat ik veel heb geleerd en nog meer kan leren van hun,
-                        en wat ik heb geleerd heel erg nuttig vind en ook op een goeie manier dingen uitgelegt gekregen heb.
-                        Ik heb al best wel veel dingen geleerd die ik echt niet een paar weken of maanden geleden zou kunnen doen dus daar ben ik ook best wel verbaast van.</h2>
+                    <h2 className="text-3xl text-gray-400 my-2">
+                        Persoonlijk vind ik het een leuke en gezelige plek.
+                        Ik vind persoonlijk dat ik veel heb geleerd heb en nog meer kan leren van hun,
+                        Ik heb al best wel veel dingen geleerd die ik echt niet een paar weken of maanden geleden zo zou gekunt hebben daar ben ik ook best wel verbaast en ook trots van.</h2>
                 </div>
             </AnimatedCard>
             <ScrollTopButton />
