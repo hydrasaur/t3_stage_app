@@ -50,7 +50,7 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ }) => {
             </div>
          </div>
          <div className="grid mx-4  gap-4 sm:grid-cols-2 lg:grid-cols-5 md:grid-cols-3 content-center justify-center ">
-            {/* {Object.entries(champions.data)
+            {Object.entries(champions?.data)
                .filter((champion: any) => {
                   // full text search filter
                   const champ = champion[1]
@@ -69,7 +69,7 @@ const ChampionsList: React.FC<ChampionsListProps> = ({ }) => {
                   // eslint-disable-next-line react/jsx-key
                   return <ChampionItem champion={champ} />;
 
-               })} */}
+               })}
          </div>
       </div>
    );
